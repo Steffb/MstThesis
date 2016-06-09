@@ -1,0 +1,78 @@
+ipsec between rasp vlan
+
+
+root@rasp1-desktop:/home/rasp1# ping 10.0.0.2 -f -c 10000
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+                   
+--- 10.0.0.2 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 55598ms
+rtt min/avg/max/mdev = 2.420/7.961/248.640/14.795 ms, pipe 19, ipg/ewma 5.560/3.737 ms
+root@rasp1-desktop:/home/rasp1# ping 10.0.0.2 -f -c 10000
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+..............                               
+--- 10.0.0.2 ping statistics ---
+10000 packets transmitted, 9986 received, 0% packet loss, time 51007ms
+rtt min/avg/max/mdev = 2.488/10.381/564.665/36.352 ms, pipe 36, ipg/ewma 5.101/5.859 ms
+root@rasp1-desktop:/home/rasp1# ping 10.0.0.2 -f -c 10000
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+             
+--- 10.0.0.2 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 51412ms
+rtt min/avg/max/mdev = 2.614/6.832/163.456/11.980 ms, pipe 13, ipg/ewma 5.141/4.027 ms
+root@rasp1-desktop:/home/rasp1# 
+
+
+root@rasp1-desktop:/home/rasp1# iperf -c 10.0.0.2 -M 1300 -t 60
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 10.0.0.2, TCP port 5001
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.1 port 44908 connected with 10.0.0.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.1 sec  49.8 MBytes  6.95 Mbits/sec
+root@rasp1-desktop:/home/rasp1# iperf -c 10.0.0.2 -M 1300 -t 60
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 10.0.0.2, TCP port 5001
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.1 port 44914 connected with 10.0.0.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.1 sec  55.8 MBytes  7.78 Mbits/sec
+
+
+[  5] local 10.0.0.2 port 5001 connected with 10.0.0.1 port 44914
+[  5]  0.0- 2.0 sec  1.84 MBytes  7.70 Mbits/sec
+[  5]  2.0- 4.0 sec  1.74 MBytes  7.30 Mbits/sec
+[  5]  4.0- 6.0 sec  1.82 MBytes  7.64 Mbits/sec
+[  5]  6.0- 8.0 sec  1.80 MBytes  7.57 Mbits/sec
+[  5]  8.0-10.0 sec  1.89 MBytes  7.93 Mbits/sec
+[  5] 10.0-12.0 sec  2.11 MBytes  8.83 Mbits/sec
+[  5] 12.0-14.0 sec  2.20 MBytes  9.24 Mbits/sec
+[  5] 14.0-16.0 sec  1.64 MBytes  6.86 Mbits/sec
+[  5] 16.0-18.0 sec  1.73 MBytes  7.27 Mbits/sec
+[  5] 18.0-20.0 sec  2.03 MBytes  8.50 Mbits/sec
+[  5] 20.0-22.0 sec  1.94 MBytes  8.15 Mbits/sec
+[  5] 22.0-24.0 sec  1.91 MBytes  8.00 Mbits/sec
+[  5] 24.0-26.0 sec  1.59 MBytes  6.69 Mbits/sec
+[  5] 26.0-28.0 sec  1.36 MBytes  5.70 Mbits/sec
+[  5] 28.0-30.0 sec  2.08 MBytes  8.73 Mbits/sec
+[  5] 30.0-32.0 sec  1.91 MBytes  8.01 Mbits/sec
+[  5] 32.0-34.0 sec  1.74 MBytes  7.32 Mbits/sec
+[  5] 34.0-36.0 sec  1.81 MBytes  7.58 Mbits/sec
+[  5] 36.0-38.0 sec  2.32 MBytes  9.75 Mbits/sec
+[  5] 38.0-40.0 sec  2.05 MBytes  8.60 Mbits/sec
+[  5] 40.0-42.0 sec  1.16 MBytes  4.87 Mbits/sec
+[  5] 42.0-44.0 sec  1.77 MBytes  7.42 Mbits/sec
+[  5] 44.0-46.0 sec  1.69 MBytes  7.08 Mbits/sec
+[  5] 46.0-48.0 sec  2.10 MBytes  8.80 Mbits/sec
+[  5] 48.0-50.0 sec  2.11 MBytes  8.84 Mbits/sec
+[  5] 50.0-52.0 sec  1.82 MBytes  7.63 Mbits/sec
+[  5] 52.0-54.0 sec  1.54 MBytes  6.45 Mbits/sec
+[  5] 54.0-56.0 sec  1.91 MBytes  8.02 Mbits/sec
+[  5] 56.0-58.0 sec  1.41 MBytes  5.89 Mbits/sec
+[  5] 58.0-60.0 sec  2.18 MBytes  9.13 Mbits/sec
+[  5]  0.0-60.7 sec  55.8 MBytes  7.71 Mbits/sec
+
+

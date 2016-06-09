@@ -1,0 +1,37 @@
+root@rasp1-desktop:~# ping 10.0.0.2 -f -c 10000 -s 1300
+PING 10.0.0.2 (10.0.0.2) 1300(1328) bytes of data.
+   
+--- 10.0.0.2 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 48490ms
+rtt min/avg/max/mdev = 3.438/4.810/42.043/1.927 ms, pipe 3, ipg/ewma 4.849/4.309 ms
+
+
+root@rasp1-desktop:~# ping 10.0.0.2 -f -c 10000 -s 1300
+PING 10.0.0.2 (10.0.0.2) 1300(1328) bytes of data.
+        
+--- 10.0.0.2 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 48467ms
+rtt min/avg/max/mdev = 3.367/5.115/104.475/5.450 ms, pipe 8, ipg/ewma 4.847/4.260 ms
+
+--- 10.0.0.2 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 45345ms
+rtt min/avg/max/mdev = 3.370/4.481/48.213/1.562 ms, pipe 4, ipg/ewma 4.535/3.735 ms
+
+
+
+------------------------------------------------------------
+Client connecting to 10.0.0.2, TCP port 5001
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.1 port 60262 connected with 10.0.0.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.2 sec   136 MBytes  18.9 Mbits/sec
+root@rasp1-desktop:~# iperf -c 10.0.0.2 -M 1300 -t 60
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 10.0.0.2, TCP port 5001
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.1 port 60267 connected with 10.0.0.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.0 sec   137 MBytes  19.2 Mbits/sec

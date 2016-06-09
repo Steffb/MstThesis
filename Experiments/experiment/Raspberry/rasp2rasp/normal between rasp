@@ -1,0 +1,86 @@
+
+
+from rasp1 to rasp2 
+
+sudo ping 129.241.205.112 -f -c 10000
+
+
+--- 129.241.205.112 ping statistics ---
+10000 packets transmitted, 9989 received, 0% packet loss, time 32692ms
+rtt min/avg/max/mdev = 1.568/3.580/111.438/5.439 ms, pipe 9, ipg/ewma 3.269/2.878 ms
+
+	--- 129.241.205.112 ping statistics ---
+	10000 packets transmitted, 9998 received, 0% packet loss, time 31390ms
+	rtt min/avg/max/mdev = 1.588/3.105/48.574/1.729 ms, pipe 4, ipg/ewma 3.139/3.161 ms
+
+--- 129.241.205.112 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 32298ms
+rtt min/avg/max/mdev = 1.602/3.530/127.742/5.933 ms, pipe 10, ipg/ewma 3.230/2.912 ms
+
+
+
+rasp1@rasp1-desktop:~$ iperf -c 129.241.205.101 -M 1300 -t 60
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 129.241.205.101, TCP port 5001
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[  3] local 129.241.205.110 port 56195 connected with 129.241.205.101 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.1 sec  86.9 MBytes  12.1 Mbits/sec
+
+------------------------------------------------------------
+Client connecting to 129.241.205.101, TCP port 5001
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[  3] local 129.241.205.110 port 56196 connected with 129.241.205.101 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.0 sec  79.2 MBytes  11.1 Mbits/sec
+
+
+
+
+
+
+Varrierende resultater 
+
+rasp1@rasp1-desktop:~$ iperf -c 129.241.205.101 -M 1300 -t 60
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 129.241.205.101, TCP port 5001
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[  3] local 129.241.205.110 port 37364 connected with 129.241.205.101 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.2 sec   105 MBytes  14.7 Mbits/sec
+rasp1@rasp1-desktop:~$ iperf -c 129.241.205.101 -M 1300 -t 60
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 129.241.205.101, TCP port 5001
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[  3] local 129.241.205.110 port 37365 connected with 129.241.205.101 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.1 sec  87.9 MBytes  12.3 Mbits/sec
+rasp1@rasp1-desktop:~$ iperf -c 129.241.205.101 -M 1300 -t 60
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 129.241.205.101, TCP port 5001
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[  3] local 129.241.205.110 port 37366 connected with 129.241.205.101 port 5001
+^C[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-27.2 sec  52.1 MBytes  16.1 Mbits/sec
+rasp1@rasp1-desktop:~$ iperf -c 129.241.205.101 -M 1300 -t 60
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 129.241.205.101, TCP port 5001
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[  3] local 129.241.205.110 port 37367 connected with 129.241.205.101 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.0 sec  98.1 MBytes  13.7 Mbits/sec
+rasp1@rasp1-desktop:~$ 
+
+
+

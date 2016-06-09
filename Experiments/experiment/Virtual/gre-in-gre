@@ -1,0 +1,11 @@
+gre in gre
+
+endc1  --> endc2 iperf
+irq
+r1 30% c1 13%
+
+
+endc1  <-- endc2 iperf
+irq
+r2 26% c2 21 %
+

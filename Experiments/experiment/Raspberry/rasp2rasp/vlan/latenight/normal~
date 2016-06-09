@@ -1,0 +1,62 @@
+00:16 
+
+
+--- 192.168.1.122 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 37889ms
+rtt min/avg/max/mdev = 2.108/4.064/101.746/5.246 ms, pipe 8, ipg/ewma 3.789/2.946 ms
+
+      
+--- 192.168.1.122 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 35017ms
+rtt min/avg/max/mdev = 2.126/3.470/79.143/1.671 ms, pipe 6, ipg/ewma 3.502/3.349 ms
+rasp1@rasp1-desktop:~$ sudo ping 192.168.1.122 -f -c 10000
+PING 192.168.1.122 (192.168.1.122) 56(84) bytes of data.
+       
+--- 192.168.1.122 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 38496ms
+rtt min/avg/max/mdev = 2.121/4.100/109.489/5.239 ms, pipe 7, ipg/ewma 3.849/3.310 ms
+
+
+Iperf much more stable ::
+
+[  3] local 192.168.1.146 port 54020 connected with 192.168.1.122 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.1 sec   146 MBytes  20.5 Mbits/sec
+
+[  3] local 192.168.1.146 port 54028 connected with 192.168.1.122 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.2 sec   144 MBytes  20.1 Mbits/sec
+
+
+
+[  4]  0.0- 2.0 sec  4.42 MBytes  18.5 Mbits/sec
+[  4]  2.0- 4.0 sec  4.91 MBytes  20.6 Mbits/sec
+[  4]  4.0- 6.0 sec  4.85 MBytes  20.4 Mbits/sec
+[  4]  6.0- 8.0 sec  4.84 MBytes  20.3 Mbits/sec
+[  4]  8.0-10.0 sec  4.80 MBytes  20.1 Mbits/sec
+[  4] 10.0-12.0 sec  4.66 MBytes  19.6 Mbits/sec
+[  4] 12.0-14.0 sec  4.50 MBytes  18.9 Mbits/sec
+[  4] 14.0-16.0 sec  4.59 MBytes  19.2 Mbits/sec
+[  4] 16.0-18.0 sec  4.70 MBytes  19.7 Mbits/sec
+[  4] 18.0-20.0 sec  4.98 MBytes  20.9 Mbits/sec
+[  4] 20.0-22.0 sec  4.84 MBytes  20.3 Mbits/sec
+[  4] 22.0-24.0 sec  4.89 MBytes  20.5 Mbits/sec
+[  4] 24.0-26.0 sec  4.96 MBytes  20.8 Mbits/sec
+[  4] 26.0-28.0 sec  4.04 MBytes  17.0 Mbits/sec
+[  4] 28.0-30.0 sec  4.90 MBytes  20.6 Mbits/sec
+[  4] 30.0-32.0 sec  4.46 MBytes  18.7 Mbits/sec
+[  4] 32.0-34.0 sec  4.47 MBytes  18.7 Mbits/sec
+[  4] 34.0-36.0 sec  4.98 MBytes  20.9 Mbits/sec
+[  4] 36.0-38.0 sec  4.36 MBytes  18.3 Mbits/sec
+[  4] 38.0-40.0 sec  4.82 MBytes  20.2 Mbits/sec
+[  4] 40.0-42.0 sec  4.25 MBytes  17.8 Mbits/sec
+[  4] 42.0-44.0 sec  5.40 MBytes  22.6 Mbits/sec
+[  4] 44.0-46.0 sec  5.20 MBytes  21.8 Mbits/sec
+[  4] 46.0-48.0 sec  5.21 MBytes  21.9 Mbits/sec
+[  4] 48.0-50.0 sec  5.25 MBytes  22.0 Mbits/sec
+[  4] 50.0-52.0 sec  5.12 MBytes  21.5 Mbits/sec
+[  4] 52.0-54.0 sec  4.95 MBytes  20.7 Mbits/sec
+[  4] 54.0-56.0 sec  5.05 MBytes  21.2 Mbits/sec
+[  4] 56.0-58.0 sec  5.11 MBytes  21.4 Mbits/sec
+[  4] 58.0-60.0 sec  5.32 MBytes  22.3 Mbits/sec
+[  4]  0.0-60.6 sec   146 MBytes  20.3 Mbits/sec

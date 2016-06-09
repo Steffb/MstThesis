@@ -1,0 +1,43 @@
+
+cpu spike in switch 0.3 %
+sender 96 % 
+
+h1 ping 10.0.0.2 -c 60000 -s 1312 -l 60000
+
+	--- 10.0.0.2 ping statistics ---
+	60000 packets transmitted, 16235 received, 72% packet loss, time 6010ms
+	rtt min/avg/max/mdev = 0.717/94.668/177.041/36.243 ms, pipe 1178
+
+	--- 10.0.0.2 ping statistics ---
+	60000 packets transmitted, 16239 received, 72% packet loss, time 6553ms
+	rtt min/avg/max/mdev = 0.523/85.247/261.253/56.718 ms, pipe 1637
+
+	--- 10.0.0.2 ping statistics ---
+	60000 packets transmitted, 745 received, 98% packet loss, time 3915ms
+	rtt min/avg/max/mdev = 3701.208/3738.148/3994.044/50.121 ms
+
+	--- 10.0.0.2 ping statistics ---
+	60000 packets transmitted, 15913 received, 73% packet loss, time 5969ms
+	rtt min/avg/max/mdev = 0.927/174.679/555.208/152.846 ms, pipe 1014
+
+	--- 10.0.0.2 ping statistics ---
+	60000 packets transmitted, 15885 received, 73% packet loss, time 6138ms
+	rtt min/avg/max/mdev = 0.519/106.721/228.921/53.365 ms, pipe 710
+
+
+
+h1 ping 10.0.0.2 -c 60000 -l 600000
+
+	--- 10.0.0.2 ping statistics ---
+	60000 packets transmitted, 41637 received, 30% packet loss, time 5578ms
+	rtt min/avg/max/mdev = 0.440/166.650/324.345/95.958 ms, pipe 32730
+
+
+	--- 10.0.0.2 ping statistics ---
+	60000 packets transmitted, 43081 received, 28% packet loss, time 5399ms
+	rtt min/avg/max/mdev = 0.391/222.866/340.385/101.758 ms, pipe 32768
+
+	--- 10.0.0.2 ping statistics ---
+	60000 packets transmitted, 41330 received, 31% packet loss, time 5354ms
+	rtt min/avg/max/mdev = 0.432/186.736/334.194/121.607 ms, pipe 32768
+

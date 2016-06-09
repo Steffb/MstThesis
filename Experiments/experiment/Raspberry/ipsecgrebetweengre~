@@ -1,0 +1,50 @@
+ipsecgrebetweengre
+
+--- 192.168.2.6 ping statistics ---
+10000 packets transmitted, 9997 received, 0% packet loss, time 84852ms
+rtt min/avg/max/mdev = 2.545/13.598/634.938/38.371 ms, pipe 48, ipg/ewma 8.486/7.716 ms
+mininet@mininet-vm:~$ sudo ping 192.168.2.6 -f -c 10000
+PING 192.168.2.6 (192.168.2.6) 56(84) bytes of data.
+.                                                      
+--- 192.168.2.6 ping statistics ---
+10000 packets transmitted, 9999 received, 0% packet loss, time 85874ms
+rtt min/avg/max/mdev = 3.130/13.097/658.111/38.182 ms, pipe 55, ipg/ewma 8.588/7.973 ms
+mininet@mininet-vm:~$ 
+
+
+--- 192.168.2.6 ping statistics ---
+10000 packets transmitted, 9997 received, 0% packet loss, time 84852ms
+rtt min/avg/max/mdev = 2.545/13.598/634.938/38.371 ms, pipe 48, ipg/ewma 8.486/7.716 ms
+mininet@mininet-vm:~$ sudo ping 192.168.2.6 -f -c 10000
+PING 192.168.2.6 (192.168.2.6) 56(84) bytes of data.
+.                                                      
+--- 192.168.2.6 ping statistics ---
+10000 packets transmitted, 9999 received, 0% packet loss, time 85874ms
+rtt min/avg/max/mdev = 3.130/13.097/658.111/38.182 ms, pipe 55, ipg/ewma 8.588/7.973 ms
+mininet@mininet-vm:~$ 
+
+
+kworker /u8:0 seemed went up between 14,2 and 8 5 of the cpu
+
+
+ iperf -c 192.168.2.6 -M 1300 -t 60
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 192.168.2.6, TCP port 5001
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.1.2 port 35808 connected with 192.168.2.6 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.4 sec  18.4 MBytes  2.55 Mbits/sec
+
+
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 192.168.2.6, TCP port 5001
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.1.2 port 35809 connected with 192.168.2.6 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-79.8 sec  21.5 MBytes  2.26 Mbits/sec
+mininet@mininet-vm:~$ 
+

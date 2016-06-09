@@ -1,0 +1,62 @@
+
+Discuss that is sends faster when not using ipsec
+
+h1 ping 10.0.0.2 -c 60000 -s 1312 -l 60000
+
+--- 10.0.0.2 ping statistics ---
+60000 packets transmitted, 16072 received, 73% packet loss, time 4332ms
+rtt min/avg/max/mdev = 3.412/78.283/138.474/25.245 ms, pipe 960
+
+--- 10.0.0.2 ping statistics ---
+60000 packets transmitted, 16535 received, 72% packet loss, time 3367ms
+rtt min/avg/max/mdev = 35.587/190.509/3432.628/548.911 ms, pipe 32020
+
+--- 10.0.0.2 ping statistics ---
+60000 packets transmitted, 16113 received, 73% packet loss, time 4522ms
+rtt min/avg/max/mdev = 0.401/58.289/134.688/27.442 ms, pipe 1107
+
+
+
+h1 ping 10.0.0.2 -c 60000 -l 600000
+
+--- 10.0.0.2 ping statistics ---
+60000 packets transmitted, 44320 received, 26% packet loss, time 3998ms
+rtt min/avg/max/mdev = 24.498/287.645/426.348/64.999 ms, pipe 32768
+
+--- 10.0.0.2 ping statistics ---
+60000 packets transmitted, 43910 received, 26% packet loss, time 3727ms
+rtt min/avg/max/mdev = 0.396/348.026/2235.319/444.308 ms, pipe 32742
+
+--- 10.0.0.2 ping statistics ---
+60000 packets transmitted, 43712 received, 27% packet loss, time 3901ms
+rtt min/avg/max/mdev = 7.287/233.986/352.437/76.171 ms, pipe 32731
+
+
+
+IPERF
+
+h1 iperf -c 10.0.0.2 -M 1200 -t 20
+
+h2 iperf -s -i 5
+
+[  5] local 10.0.0.2 port 5001 connected with 10.0.0.1 port 36978
+[  5]  0.0- 5.0 sec   109 MBytes   183 Mbits/sec
+[  5]  5.0-10.0 sec   107 MBytes   180 Mbits/sec
+[  5] 10.0-15.0 sec   109 MBytes   182 Mbits/sec
+[  5]  0.0-15.8 sec   344 MBytes   182 Mbits/sec
+
+[  4] local 10.0.0.2 port 5001 connected with 10.0.0.1 port 36979
+[  4]  0.0- 5.0 sec   116 MBytes   195 Mbits/sec
+[  4]  5.0-10.0 sec   114 MBytes   192 Mbits/sec
+[  4] 10.0-15.0 sec   111 MBytes   187 Mbits/sec
+[  4] 15.0-20.0 sec   109 MBytes   183 Mbits/sec
+[  4]  0.0-20.1 sec   453 MBytes   189 Mbits/sec
+
+[  5] local 10.0.0.2 port 5001 connected with 10.0.0.1 port 36980
+[  5]  0.0- 5.0 sec   124 MBytes   209 Mbits/sec
+[  5]  5.0-10.0 sec   113 MBytes   190 Mbits/sec
+[  5] 10.0-15.0 sec   112 MBytes   188 Mbits/sec
+[  5] 15.0-20.0 sec   111 MBytes   186 Mbits/sec
+[  5]  0.0-20.1 sec   463 MBytes   193 Mbits/sec
+
+

@@ -1,0 +1,7 @@
+------------------------------------------------------------
+Client connecting to 192.168.1.121, TCP port 5001
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.1.143 port 50164 connected with 192.168.1.121 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.0 sec   669 MBytes  93.5 Mbits/sec

@@ -1,0 +1,21 @@
+root@rasp1-desktop:/home/rasp1# iperf -c 11.0.0.2 -M 1300 -t 60 -P 4
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 11.0.0.2, TCP port 5001
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[  6] local 11.0.0.1 port 50675 connected with 11.0.0.2 port 5001
+[  4] local 11.0.0.1 port 50672 connected with 11.0.0.2 port 5001
+[  3] local 11.0.0.1 port 50673 connected with 11.0.0.2 port 5001
+[  5] local 11.0.0.1 port 50674 connected with 11.0.0.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  5]  0.0-60.0 sec   161 MBytes  22.5 Mbits/sec
+[  6]  0.0-60.2 sec   213 MBytes  29.7 Mbits/sec
+[  3]  0.0-60.2 sec   137 MBytes  19.0 Mbits/sec
+[  4]  0.0-60.2 sec  94.0 MBytes  13.1 Mbits/sec
+[SUM]  0.0-60.2 sec   605 MBytes  84.2 Mbits/sec
+
+

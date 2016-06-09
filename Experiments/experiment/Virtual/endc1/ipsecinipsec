@@ -1,0 +1,118 @@
+ipsec in ipsec
+
+
+ubuntu@ubuntu-VirtualBox:~$ sudo !!
+sudo ping 192.168.7.2 -s 1300 -c 10000 -f
+[sudo] password for ubuntu: 
+PING 192.168.7.2 (192.168.7.2) 1300(1328) bytes of data.
+  
+--- 192.168.7.2 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 23754ms
+rtt min/avg/max/mdev = 0.302/1.986/15.011/1.424 ms, pipe 2, ipg/ewma 2.375/1.702 ms
+ubuntu@ubuntu-VirtualBox:~$ sudo ping 192.168.7.2 -s 1300 -c 10000 -f
+PING 192.168.7.2 (192.168.7.2) 1300(1328) bytes of data.
+  
+--- 192.168.7.2 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 23330ms
+rtt min/avg/max/mdev = 0.368/1.980/14.153/1.361 ms, pipe 2, ipg/ewma 2.333/2.155 ms
+ubuntu@ubuntu-VirtualBox:~$ sudo ping 192.168.7.2 -s 1300 -c 10000 -f
+PING 192.168.7.2 (192.168.7.2) 1300(1328) bytes of data.
+  
+--- 192.168.7.2 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 23244ms
+rtt min/avg/max/mdev = 0.039/1.941/18.389/1.309 ms, pipe 2, ipg/ewma 2.324/1.964 ms
+
+
+ iperf -c 192.168.7.2 -M 1300 -t 60
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 192.168.7.2, TCP port 5001
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.6.2 port 60427 connected with 192.168.7.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.0 sec   778 MBytes   109 Mbits/sec
+
+ubuntu@ubuntu-VirtualBox:~$ iperf -c 192.168.7.2 -M 1300 -t 60
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 192.168.7.2, TCP port 5001
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.6.2 port 60428 connected with 192.168.7.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.1 sec   775 MBytes   108 Mbits/sec
+
+ubuntu@ubuntu-VirtualBox:~$ iperf -c 192.168.7.2 -M 1300 -t 60
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 192.168.7.2, TCP port 5001
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.6.2 port 60429 connected with 192.168.7.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.0 sec   802 MBytes   112 Mbits/sec
+
+ubuntu@ubuntu-VirtualBox:~$ iperf -c 192.168.7.2 -M 1300 -t 60
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 192.168.7.2, TCP port 5001
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.6.2 port 60430 connected with 192.168.7.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.1 sec   795 MBytes   111 Mbits/sec
+
+ubuntu@ubuntu-VirtualBox:~$ iperf -c 192.168.7.2 -M 1300 -t 60
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 192.168.7.2, TCP port 5001
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.6.2 port 60431 connected with 192.168.7.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.1 sec   806 MBytes   113 Mbits/sec
+ubuntu@ubuntu-VirtualBox:~$ 
+
+
+
+
+-b 200m -t 60 
+
+[  4]  0.0-32.5 sec  1 datagrams received out-of-order
+[  3] local 192.168.6.2 port 5001 connected with 192.168.7.2 port 33090
+[  3]  0.0- 5.0 sec  84.3 MBytes   141 Mbits/sec   0.094 ms 8643/76648 (11%)
+[  3]  5.0-10.0 sec  85.3 MBytes   143 Mbits/sec   0.078 ms 11716/80525 (15%)
+[  3] 10.0-15.0 sec  85.9 MBytes   144 Mbits/sec   0.067 ms 12831/82126 (16%)
+[  3] 15.0-20.0 sec  88.4 MBytes   148 Mbits/sec   0.057 ms 11463/82729 (14%)
+[  3] 20.0-25.0 sec  88.6 MBytes   149 Mbits/sec   0.113 ms 12791/84275 (15%)
+[  3] 25.0-30.0 sec  87.3 MBytes   146 Mbits/sec   0.080 ms 12737/83125 (15%)
+[  3] 30.0-35.0 sec  89.2 MBytes   150 Mbits/sec   0.461 ms 10538/82460 (13%)
+[  3] 35.0-40.0 sec  58.8 MBytes  98.7 Mbits/sec   0.065 ms 34258/81712 (42%)
+[  3] 40.0-45.0 sec  89.6 MBytes   150 Mbits/sec   0.063 ms 9560/81826 (12%)
+[  3] 45.0-50.0 sec  89.8 MBytes   151 Mbits/sec   0.063 ms 9558/82020 (12%)
+[  3] 50.0-55.0 sec  89.9 MBytes   151 Mbits/sec   0.071 ms 10351/82876 (12%)
+[  3] 55.0-60.0 sec  87.9 MBytes   148 Mbits/sec   0.063 ms 11932/82870 (14%)
+[  3]  0.0-60.3 sec  1.00 GBytes   143 Mbits/sec  12.211 ms 156618/984323 (16%)
+
+
+-b 250m -t 60 
+
+[  4] local 192.168.6.2 port 5001 connected with 192.168.7.2 port 39414
+[  4]  0.0- 5.0 sec  84.8 MBytes   142 Mbits/sec   0.078 ms 8626/77059 (11%)
+[  4]  0.0- 5.0 sec  3 datagrams received out-of-order
+[  4]  5.0-10.0 sec  84.6 MBytes   142 Mbits/sec   0.081 ms 9799/78025 (13%)
+[  4] 10.0-15.0 sec  89.2 MBytes   150 Mbits/sec   0.070 ms 16859/88819 (19%)
+[  4] 15.0-20.0 sec  91.5 MBytes   154 Mbits/sec   0.068 ms 15892/89703 (18%)
+[  4] 20.0-25.0 sec  92.4 MBytes   155 Mbits/sec   0.070 ms 14099/88630 (16%)
+[  4] 25.0-30.0 sec  93.5 MBytes   157 Mbits/sec   0.057 ms 12339/87778 (14%)
+[  4] 30.0-35.0 sec  91.8 MBytes   154 Mbits/sec   0.080 ms 14337/88347 (16%)
+[  4] 35.0-40.0 sec  89.3 MBytes   150 Mbits/sec   0.080 ms 17587/89597 (20%)
+[  4] 40.0-45.0 sec  92.3 MBytes   155 Mbits/sec   0.111 ms 14847/89328 (17%)
+[  4] 45.0-50.0 sec  91.4 MBytes   153 Mbits/sec   0.069 ms 10739/84428 (13%)
+[  4] 50.0-55.0 sec  90.1 MBytes   151 Mbits/sec   0.063 ms 14935/87649 (17%)
+[  4] 55.0-60.0 sec  92.4 MBytes   155 Mbits/sec   0.080 ms 13326/87847 (15%)
+[  4]  0.0-60.2 sec  1.06 GBytes   151 Mbits/sec  11.994 ms 163543/1038297 (16%)
+[  4]  0.0-60.2 sec  4 datagrams received out-of-order
+
+

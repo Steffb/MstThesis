@@ -1,0 +1,46 @@
+ubuntu@ubuntu-VirtualBox:~$ sudo ping 192.168.7.2 -s 1300 -c 10000 -f
+PING 192.168.7.2 (192.168.7.2) 1300(1328) bytes of data.
+  
+--- 192.168.7.2 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 18321ms
+rtt min/avg/max/mdev = 0.086/1.552/14.354/1.102 ms, pipe 2, ipg/ewma 1.832/1.515 ms
+ubuntu@ubuntu-VirtualBox:~$ sudo ping 192.168.7.2 -s 1300 -c 10000 -f
+PING 192.168.7.2 (192.168.7.2) 1300(1328) bytes of data.
+  
+--- 192.168.7.2 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 18582ms
+rtt min/avg/max/mdev = 0.192/1.537/13.004/1.103 ms, pipe 2, ipg/ewma 1.858/1.819 ms
+ubuntu@ubuntu-VirtualBox:~$ 
+
+
+
+Cubuntu@ubuntu-VirtualBox:~iperf -c 192.168.7.2 -t 60 -M 1300
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 192.168.7.2, TCP port 5001
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.6.2 port 60424 connected with 192.168.7.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.0 sec  1.55 GBytes   222 Mbits/sec
+ubuntu@ubuntu-VirtualBox:~$ iperf -c 192.168.7.2 -t 60 -M 1300
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 192.168.7.2, TCP port 5001
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.6.2 port 60425 connected with 192.168.7.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.0 sec  1.58 GBytes   227 Mbits/sec
+ubuntu@ubuntu-VirtualBox:~$ iperf -c 192.168.7.2 -t 60 -M 1300
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 192.168.7.2, TCP port 5001
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.6.2 port 60426 connected with 192.168.7.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.0 sec  1.54 GBytes   220 Mbits/sec
+
+
+

@@ -1,0 +1,59 @@
+
+
+
+
+The gre encapsulation seems to go faster than the original ping 
+
+
+Gre ping : 
+root@rasp1-desktop:/home/rasp1# ping 10.0.0.2 -f -c 10000
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+  
+--- 10.0.0.2 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 34450ms
+rtt min/avg/max/mdev = 2.084/3.371/21.934/1.312 ms, pipe 2, ipg/ewma 3.445/3.089 ms
+
+--- 10.0.0.2 ping statistics ---
+10000 packets transmitted, 9999 received, 0% packet loss, time 33805ms
+rtt min/avg/max/mdev = 2.002/3.470/103.112/3.872 ms, pipe 9, ipg/ewma 3.380/3.254 ms
+root@rasp1-desktop:/home/rasp1# ping 10.0.0.2 -f -c 10000
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+   
+--- 10.0.0.2 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 32522ms
+rtt min/avg/max/mdev = 2.064/3.184/25.801/1.180 ms, pipe 3, ipg/ewma 3.252/3.424 ms
+root@rasp1-desktop:/home/rasp1# 
+
+This is at same time 
+
+	sudo ping 129.241.205.101 -f -c 10000
+	PING 129.241.205.101 (129.241.205.101) 56(84) bytes of data.
+	       
+	--- 129.241.205.101 ping statistics ---
+	10000 packets transmitted, 10000 received, 0% packet loss, time 36595ms
+	rtt min/avg/max/mdev = 1.938/3.716/85.000/2.962 ms, pipe 7, ipg/ewma 3.659/3.227 ms
+	rasp1@rasp1-desktop:~$ sudo ping 129.241.205.101 -f -c 10000
+	PING 129.241.205.101 (129.241.205.101) 56(84) bytes of data.
+	.                
+	--- 129.241.205.101 ping statistics ---
+	10000 packets transmitted, 9999 received, 0% packet loss, time 35092ms
+	rtt min/avg/max/mdev = 1.901/3.738/229.889/6.333 ms, pipe 17, ipg/ewma 3.509/4.105 ms
+	rasp1@rasp1-desktop:~$ sudo ping 129.241.205.101 -f -c 10000
+	PING 129.241.205.101 (129.241.205.101) 56(84) bytes of data.
+	.                                                                
+	--- 129.241.205.101 ping statistics ---
+	10000 packets transmitted, 9999 received, 0% packet loss, time 34969ms
+	rtt min/avg/max/mdev = 1.9
+
+
+iperf
+
+Kworker oppe i 10 % ikke mer. 
+litt høyere hos mottaker..
+ ca 10 vs 8 prosent
+
+
+
+
+
+

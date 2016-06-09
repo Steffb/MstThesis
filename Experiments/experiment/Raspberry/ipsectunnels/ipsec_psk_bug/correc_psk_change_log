@@ -1,0 +1,100 @@
+May 21 17:06:02 rasp1-desktop racoon: ERROR: phase1 negotiation failed due to time up. 898bea7a3791778e:1e5f33e47751df1f
+May 21 17:06:02 rasp1-desktop racoon: ERROR: phase1 negotiation failed due to time up. 2b68d5759436ba8e:8dac1c50eb55e408
+May 21 17:08:40 rasp1-desktop ovs-vsctl: ovs|00001|vsctl|INFO|Called as ovs-vsctl set Interface ipsec_gre options:psk=pass233
+May 21 17:08:40 rasp1-desktop rsyslogd-2007: action 'action 10' suspended, next retry is Sat May 21 17:10:10 2016 [v8.12.0 try http://www.rsyslog.com/e/2007 ]
+May 21 17:08:40 rasp1-desktop racoon: INFO: unsupported PF_KEY message REGISTER
+May 21 17:08:40 rasp1-desktop racoon: message repeated 22 times: [ INFO: unsupported PF_KEY message REGISTER]
+May 21 17:08:40 rasp1-desktop racoon: INFO: purged IPsec-SA proto_id=ESP spi=155148745.
+May 21 17:08:40 rasp1-desktop racoon: ERROR: no iph2 found: ESP 129.241.205.110[500]->129.241.205.101[500] spi=155148745(0x93f61c9)
+May 21 17:08:40 rasp1-desktop racoon: message repeated 22 times: [ ERROR: no iph2 found: ESP 129.241.205.110[500]->129.241.205.101[500] spi=155148745(0x93f61c9)]
+May 21 17:08:40 rasp1-desktop racoon: INFO: ISAKMP-SA deleted 129.241.205.110[500]-129.241.205.101[500] spi:71479f4d68a24774:047073c5dfd221bb
+May 21 17:08:40 rasp1-desktop racoon: INFO: unsupported PF_KEY message REGISTER
+May 21 17:08:41 rasp1-desktop racoon: message repeated 72 times: [ INFO: unsupported PF_KEY message REGISTER]
+May 21 17:09:46 rasp1-desktop racoon: INFO: respond new phase 1 negotiation: 129.241.205.110[500]<=>129.241.205.101[500]
+May 21 17:09:46 rasp1-desktop racoon: INFO: begin Identity Protection mode.
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: RFC 3947
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-02
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-02
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-00
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: DPD
+May 21 17:09:46 rasp1-desktop racoon: [129.241.205.101] INFO: Selected NAT-T version: RFC 3947
+May 21 17:09:46 rasp1-desktop racoon: INFO: respond new phase 1 negotiation: 129.241.205.110[500]<=>129.241.205.101[500]
+May 21 17:09:46 rasp1-desktop racoon: INFO: begin Identity Protection mode.
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: RFC 3947
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-02
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-02
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-00
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: DPD
+May 21 17:09:46 rasp1-desktop racoon: [129.241.205.101] INFO: Selected NAT-T version: RFC 3947
+May 21 17:09:46 rasp1-desktop racoon: INFO: respond new phase 1 negotiation: 129.241.205.110[500]<=>129.241.205.101[500]
+May 21 17:09:46 rasp1-desktop racoon: INFO: begin Identity Protection mode.
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: RFC 3947
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-02
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-02
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-00
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: DPD
+May 21 17:09:46 rasp1-desktop racoon: [129.241.205.101] INFO: Selected NAT-T version: RFC 3947
+May 21 17:09:46 rasp1-desktop racoon: INFO: respond new phase 1 negotiation: 129.241.205.110[500]<=>129.241.205.101[500]
+May 21 17:09:46 rasp1-desktop racoon: INFO: begin Identity Protection mode.
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: RFC 3947
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-02
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-02
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-00
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: DPD
+May 21 17:09:46 rasp1-desktop racoon: [129.241.205.101] INFO: Selected NAT-T version: RFC 3947
+May 21 17:09:46 rasp1-desktop racoon: INFO: respond new phase 1 negotiation: 129.241.205.110[500]<=>129.241.205.101[500]
+May 21 17:09:46 rasp1-desktop racoon: INFO: begin Identity Protection mode.
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: RFC 3947
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-02
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-02
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-00
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: DPD
+May 21 17:09:46 rasp1-desktop racoon: [129.241.205.101] INFO: Selected NAT-T version: RFC 3947
+May 21 17:09:46 rasp1-desktop racoon: INFO: respond new phase 1 negotiation: 129.241.205.110[500]<=>129.241.205.101[500]
+May 21 17:09:46 rasp1-desktop racoon: INFO: begin Identity Protection mode.
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: RFC 3947
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-02
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-02
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-00
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: DPD
+May 21 17:09:46 rasp1-desktop racoon: [129.241.205.101] INFO: Selected NAT-T version: RFC 3947
+May 21 17:09:46 rasp1-desktop racoon: INFO: respond new phase 1 negotiation: 129.241.205.110[500]<=>129.241.205.101[500]
+May 21 17:09:46 rasp1-desktop racoon: INFO: begin Identity Protection mode.
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: RFC 3947
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-02
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-02
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-00
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: DPD
+May 21 17:09:46 rasp1-desktop racoon: [129.241.205.101] INFO: Selected NAT-T version: RFC 3947
+May 21 17:09:46 rasp1-desktop racoon: INFO: respond new phase 1 negotiation: 129.241.205.110[500]<=>129.241.205.101[500]
+May 21 17:09:46 rasp1-desktop racoon: INFO: begin Identity Protection mode.
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: RFC 3947
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-02
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-02
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: draft-ietf-ipsec-nat-t-ike-00
+May 21 17:09:46 rasp1-desktop racoon: INFO: received Vendor ID: DPD
+May 21 17:09:46 rasp1-desktop racoon: [129.241.205.101] INFO: Selected NAT-T version: RFC 3947
+May 21 17:09:46 rasp1-desktop racoon: [129.241.205.110] INFO: Hashing 129.241.205.110[500] with algo #2
+May 21 17:09:46 rasp1-desktop racoon: INFO: NAT-D payload #0 verified
+May 21 17:09:46 rasp1-desktop racoon: [129.241.205.101] INFO: Hashing 129.241.205.101[500] with algo #2
+May 21 17:09:46 rasp1-desktop racoon: INFO: NAT-D payload #1 verified
+May 21 17:09:46 rasp1-desktop racoon: INFO: NAT not detected
+May 21 17:09:46 rasp1-desktop racoon: [129.241.205.101] INFO: Hashing 129.241.205.101[500] with algo #2
+May 21 17:09:46 rasp1-desktop racoon: [129.241.205.110] INFO: Hashing 129.241.205.110[500] with algo #2
+May 21 17:09:46 rasp1-desktop racoon: INFO: Adding remote and local NAT-D payloads.
+May 21 17:09:56 rasp1-desktop racoon: NOTIFY: the packet is retransmitted by 129.241.205.101[500] (1).
+May 21 17:09:56 rasp1-desktop racoon: message repeated 7 times: [ NOTIFY: the packet is retransmitted by 129.241.205.101[500] (1).]
+May 21 17:09:56 rasp1-desktop racoon: INFO: ISAKMP-SA established 129.241.205.110[500]-129.241.205.101[500] spi:b827d1e53cca1b5d:7cfd9a23232883f1
+May 21 17:09:57 rasp1-desktop racoon: INFO: respond new phase 2 negotiation: 129.241.205.110[500]<=>129.241.205.101[500]
+May 21 17:09:57 rasp1-desktop racoon: INFO: IPsec-SA established: ESP/Transport 129.241.205.110[500]->129.241.205.101[500] spi=188637953(0xb3e6301)
+May 21 17:09:57 rasp1-desktop racoon: INFO: IPsec-SA established: ESP/Transport 129.241.205.110[500]->129.241.205.101[500] spi=145298673(0x8a914f1)
+May 21 17:10:06 rasp1-desktop racoon: NOTIFY: the packet is retransmitted by 129.241.205.101[500] (1).
+May 21 17:10:26 rasp1-desktop racoon: message repeated 20 times: [ NOTIFY: the packet is retransmitted by 129.241.205.101[500] (1).]
+May 21 17:10:36 rasp1-desktop racoon: ERROR: phase1 negotiation failed due to time up. 3e1e0ff1afce5134:7d1b7fc73d9d3199
+May 21 17:10:36 rasp1-desktop racoon: ERROR: phase1 negotiation failed due to time up. e6bab8c6d1b1d615:c3788ab7b7dc637a
+May 21 17:10:36 rasp1-desktop rsyslogd-2007: action 'action 10' suspended, next retry is Sat May 21 17:12:06 2016 [v8.12.0 try http://www.rsyslog.com/e/2007 ]
+May 21 17:10:36 rasp1-desktop racoon: ERROR: phase1 negotiation failed due to time up. d68b81822d6ba4ff:2f1750213d5cbdec
+May 21 17:10:36 rasp1-desktop racoon: ERROR: phase1 negotiation failed due to time up. 3b89d7e38cbdb181:8f732ae31efa8c44
+May 21 17:10:36 rasp1-desktop racoon: ERROR: phase1 negotiation failed due to time up. 05712c79032fcf3b:2d7f73c3a1f7ac9e
+May 21 17:10:36 rasp1-desktop racoon: ERROR: phase1 negotiation failed due to time up. 9a60c61f2d824b7f:5680d6fd2f66bed9
+May 21 17:10:36 rasp1-desktop racoon: ERROR: phase1 negotiation failed due to time up. d405edaae569cb56:9d25567d8de16861

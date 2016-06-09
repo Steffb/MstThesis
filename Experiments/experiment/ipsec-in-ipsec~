@@ -1,0 +1,14 @@
+ping -s 1300 -c 10000 -f
+
+ksoftirqd/d
+	Both R1 and R2 are using cpu between 20-30 %
+
+on the cs it was same as earlier the on on recieving side had 23 % and the other har 7%
+
+direction did not matter on performance.
+
+
+
+-b 200  250 both steady on 40 %
+
+Ovs-vsdbm jumped up sometimes. 

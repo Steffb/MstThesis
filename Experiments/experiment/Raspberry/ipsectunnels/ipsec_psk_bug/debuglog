@@ -1,0 +1,40 @@
+May 21 16:41:09 rasp1-desktop rsyslogd-2007: action 'action 10' suspended, next retry is Sat May 21 16:42:39 2016 [v8.12.0 try http://www.rsyslog.com/e/2007 ]
+May 21 16:41:10 rasp1-desktop racoon: INFO: unsupported PF_KEY message REGISTER
+May 21 16:41:10 rasp1-desktop racoon: message repeated 95 times: [ INFO: unsupported PF_KEY message REGISTER]
+May 21 16:41:38 rasp1-desktop ovs-vsctl: ovs|00001|vsctl|INFO|Called as ovs-vsctl set Interface ipsec_gre options:psk=xxxx
+May 21 16:41:38 rasp1-desktop racoon: INFO: unsupported PF_KEY message REGISTER
+May 21 16:41:39 rasp1-desktop racoon: message repeated 95 times: [ INFO: unsupported PF_KEY message REGISTER]
+May 21 16:42:01 rasp1-desktop ovs-vsctl: ovs|00001|vsctl|INFO|Called as ovs-vsctl set Interface ipsec_gre options:psk=other3
+May 21 16:42:01 rasp1-desktop racoon: INFO: unsupported PF_KEY message REGISTER
+May 21 16:42:02 rasp1-desktop racoon: message repeated 95 times: [ INFO: unsupported PF_KEY message REGISTER]
+May 21 16:42:33 rasp1-desktop ovs-vsctl: ovs|00001|vsctl|INFO|Called as ovs-vsctl set Interface ipsec_gre options:psk=password
+May 21 16:42:33 rasp1-desktop racoon: INFO: unsupported PF_KEY message REGISTER
+May 21 16:42:33 rasp1-desktop racoon: message repeated 95 times: [ INFO: unsupported PF_KEY message REGISTER]
+May 21 16:43:04 rasp1-desktop ovs-vsctl: ovs|00001|vsctl|INFO|Called as ovs-vsctl set Interface ipsec_gre options:psk=pa
+May 21 16:43:04 rasp1-desktop rsyslogd-2007: action 'action 10' suspended, next retry is Sat May 21 16:44:34 2016 [v8.12.0 try http://www.rsyslog.com/e/2007 ]
+May 21 16:43:05 rasp1-desktop racoon: INFO: unsupported PF_KEY message REGISTER
+May 21 16:43:05 rasp1-desktop racoon: message repeated 95 times: [ INFO: unsupported PF_KEY message REGISTER]
+May 21 16:45:47 rasp1-desktop racoon: INFO: IPsec-SA expired: ESP/Transport 129.241.205.101[500]->129.241.205.110[500] spi=137361257(0x82ff769)
+May 21 16:45:47 rasp1-desktop rsyslogd-2007: action 'action 10' suspended, next retry is Sat May 21 16:47:17 2016 [v8.12.0 try http://www.rsyslog.com/e/2007 ]
+May 21 16:45:47 rasp1-desktop racoon: message repeated 23 times: [ INFO: IPsec-SA expired: ESP/Transport 129.241.205.101[500]->129.241.205.110[500] spi=137361257(0x82ff769)]
+May 21 16:46:43 rasp1-desktop ovs-vsctl: ovs|00001|vsctl|INFO|Called as ovs-vsctl set Interface ipsec_gre options:psk=pawewewe
+May 21 16:46:43 rasp1-desktop racoon: INFO: unsupported PF_KEY message REGISTER
+May 21 16:46:43 rasp1-desktop racoon: message repeated 95 times: [ INFO: unsupported PF_KEY message REGISTER]
+May 21 16:46:55 rasp1-desktop ovs-vsctl: ovs|00001|vsctl|INFO|Called as ovs-vsctl set Interface ipsec_gre options:psk=paweweweqwetqwet
+May 21 16:46:56 rasp1-desktop racoon: INFO: unsupported PF_KEY message REGISTER
+May 21 16:46:56 rasp1-desktop racoon: message repeated 95 times: [ INFO: unsupported PF_KEY message REGISTER]
+May 21 16:47:01 rasp1-desktop ovs-vsctl: ovs|00001|vsctl|INFO|Called as ovs-vsctl set Interface ipsec_gre options:psk=rrr
+May 21 16:47:02 rasp1-desktop racoon: INFO: unsupported PF_KEY message REGISTER
+May 21 16:47:02 rasp1-desktop racoon: message repeated 95 times: [ INFO: unsupported PF_KEY message REGISTER]
+May 21 16:47:55 rasp1-desktop rsyslogd-2007: action 'action 10' suspended, next retry is Sat May 21 16:49:25 2016 [v8.12.0 try http://www.rsyslog.com/e/2007 ]
+May 21 16:47:55 rasp1-desktop racoon: INFO: IPsec-SA expired: ESP/Transport 129.241.205.101[500]->129.241.205.110[500] spi=250834572(0xef36e8c)
+May 21 16:51:26 rasp1-desktop kernel: [109192.319562] device wlan0 left promiscuous mode
+May 21 16:51:26 rasp1-desktop rsyslogd-2007: action 'action 10' suspended, next retry is Sat May 21 16:52:56 2016 [v8.12.0 try http://www.rsyslog.com/e/2007 ]
+May 21 16:47:55 rasp1-desktop racoon: message repeated 23 times: [ INFO: IPsec-SA expired: ESP/Transport 129.241.205.101[500]->129.241.205.110[500] spi=250834572(0xef36e8c)]
+May 21 16:51:30 rasp1-desktop dbus[649]: [system] Activating via systemd: service name='org.freedesktop.hostname1' unit='dbus-org.freedesktop.hostname1.service'
+May 21 16:51:30 rasp1-desktop systemd[1]: Starting Hostname Service...
+May 21 16:51:30 rasp1-desktop dbus[649]: [system] Successfully activated service 'org.freedesktop.hostname1'
+May 21 16:51:30 rasp1-desktop systemd[1]: Started Hostname Service.
+May 21 16:55:49 rasp1-desktop rsyslogd-2007: action 'action 10' suspended, next retry is Sat May 21 16:57:19 2016 [v8.12.0 try http://www.rsyslog.com/e/2007 ]
+May 21 16:57:47 rasp1-desktop racoon: INFO: IPsec-SA expired: ESP/Transport 129.241.205.101[500]->129.241.205.110[500] spi=137361257(0x82ff769)
+May 21 16:57:47 rasp1-desktop rsyslogd-2007: action 'action 10' suspended, next retry is Sat May 21 16:59:17 2016 [v8.12.0 try http://www.rsyslog.com/e/2007 ]

@@ -1,0 +1,59 @@
+ipsec:
+
+not 1300 -s
+--- 11.0.0.2 ping statistics ---
+9834 packets transmitted, 9831 received, 0% packet loss, time 46138ms
+rtt min/avg/max/mdev = 2.280/4.468/75.381/3.106 ms, pipe 5, ipg/ewma 4.692/4.280 ms
+
+root@rasp1-desktop:/home/rasp1# ping 11.0.0.2 -f -c 10000 -s 1300
+PING 11.0.0.2 (11.0.0.2) 1300(1328) bytes of data.
+      
+--- 11.0.0.2 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 63279ms
+rtt min/avg/max/mdev = 3.805/5.890/78.253/2.868 ms, pipe 6, ipg/ewma 6.328/5.326 ms
+
+normal:
+
+sudo ping 192.168.1.122 -f -s 1300 -c 10000
+PING 192.168.1.122 (192.168.1.122) 1300(1328) bytes of data.
+     
+--- 192.168.1.122 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 51421ms
+rtt min/avg/max/mdev = 3.206/5.050/67.820/2.516 ms, pipe 5, ipg/ewma 5.142/5.243 ms
+rasp1@rasp1-desktop:~$ sudo ping 192.168.1.122 -f -s 1300 -c 10000
+PING 192.168.1.122 (192.168.1.122) 1300(1328) bytes of data.
+       
+--- 192.168.1.122 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 50476ms
+rtt min/avg/max/mdev = 3.110/5.103/96.517/4.122 ms, pipe 7, ipg/ewma 5.048/4.430 ms
+
+
+Throughput: 
+
+ipsec:
+
+root@rasp1-desktop:/home/rasp1# iperf -c 11.0.0.2 -M 1300 -t 60
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 11.0.0.2, TCP port 5001
+TCP window size:  359 KByte (default)
+------------------------------------------------------------
+[  3] local 11.0.0.1 port 55461 connected with 11.0.0.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.1 sec   104 MBytes  14.5 Mbits/sec
+
+normal:
+
+rasp1@rasp1-desktop:~$ iperf -c 192.168.1.122 -t 60 -M 1300
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 192.168.1.122, TCP port 5001
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.1.146 port 44769 connected with 192.168.1.122 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.1 sec   137 MBytes  19.1 Mbits/sec
+rasp1@rasp1-desktop:~$ 
+
+
+

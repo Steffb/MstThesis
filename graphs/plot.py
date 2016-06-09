@@ -1,0 +1,39 @@
+import numpy
+
+import matplotlib.pyplot as plt
+
+def list_key_change_time(file):
+	timelist = []
+	previous = None
+	for line in file.readlines():
+		try: 
+		
+			timestamp=  int(line[1:11])
+		
+			if(previous != None):
+				difference =  timestamp - previous
+				if(difference>3):
+					timelist.append(difference)
+		
+			previous = timestamp
+		except ValueError:
+			print 'failed on' + line
+			previous = None	
+	return timelist
+
+file = open('ping', 'r')
+result = list_key_change_time(file)
+file =  open('ping i 3', 'r')
+result.extend( list_key_change_time(file))
+print len(result)
+unique =[]
+result = sorted(result)
+for r in range(0, result[-1], 2):
+	unique.append(r)
+
+
+
+#plt.hist(result, bins=unique)
+#plt.show()
+
+

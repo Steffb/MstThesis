@@ -1,0 +1,35 @@
+ubuntu@ubuntu-VirtualBox:~$ sudo ping 192.168.7.2 -f -c 10000
+[sudo] password for ubuntu: 
+PING 192.168.7.2 (192.168.7.2) 56(84) bytes of data.
+  
+--- 192.168.7.2 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 20630ms
+rtt min/avg/max/mdev = 0.255/1.743/21.738/1.412 ms, pipe 2, ipg/ewma 2.063/1.123 ms
+ubuntu@ubuntu-VirtualBox:~$ sudo ping 192.168.7.2 -f -c 10000
+PING 192.168.7.2 (192.168.7.2) 56(84) bytes of data.
+  
+--- 192.168.7.2 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 20527ms
+rtt min/avg/max/mdev = 0.000/1.759/15.303/1.260 ms, pipe 2, ipg/ewma 2.052/1.346 ms
+
+
+ubuntu@ubuntu-VirtualBox:~$ iperf -c 192.168.7.2 -t 60 -M 1300
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 192.168.7.2, TCP port 5001
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.6.2 port 60422 connected with 192.168.7.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.1 sec   649 MBytes  90.7 Mbits/sec
+ubuntu@ubuntu-VirtualBox:~$ iperf -c 192.168.7.2 -t 60 -M 1300
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 192.168.7.2, TCP port 5001
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.6.2 port 60423 connected with 192.168.7.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.1 sec   653 MBytes  91.2 Mbits/sec
+ubuntu@ubuntu-VirtualBox:~$ 
+

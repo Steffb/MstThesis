@@ -1,0 +1,42 @@
+
+
+ping -s 1300 -c 10000 -f
+
+No cpu jump
+
+ping host max 9.2 %
+
+2.3 % mem
+0.3 % cpu
+
+
+iperf
+
+h1 iperf -c 192.168.7.2 -M 1400 -t 20
+
+h2 iperf -s -i 5
+
+cpu on switches maxed on 20 
+ksoftirqd/0
+
+
+encdc2 iperf 40 % cpu
+
+endc1 nothing...
+
+ovs-vswitchhd 12 
+
+
+endc1  --> endc2 iperf
+irq
+r1 43% c1 25%
+
+
+endc1  <-- endc2 iperf
+irq
+r2 33% c2 21 %
+
+
+other 0.7 and 7.4 
+
+ovs 4- 5 % 

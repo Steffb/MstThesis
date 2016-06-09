@@ -1,0 +1,61 @@
+kworker er litt høyrer hos sender ..
+
+64 bytes from 10.0.0.2: icmp_seq=2 ttl=64 time=3.32 ms
+^C
+--- 10.0.0.2 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 3.320/6.624/9.928/3.304 ms
+root@rasp1-desktop:/home/rasp1# ping 10.0.0.2 -f -c 10000
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+.                              
+--- 10.0.0.2 ping statistics ---
+10000 packets transmitted, 9999 received, 0% packet loss, time 39697ms
+rtt min/avg/max/mdev = 2.240/4.516/402.758/13.119 ms, pipe 30, ipg/ewma 3.970/3.785 ms
+root@rasp1-desktop:/home/rasp1# ping 10.0.0.2 -f -c 10000
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+.        
+--- 10.0.0.2 ping statistics ---
+10000 packets transmitted, 9999 received, 0% packet loss, time 38111ms
+rtt min/avg/max/mdev = 2.263/3.904/101.803/4.326 ms, pipe 8, ipg/ewma 3.811/3.115 ms
+root@rasp1-desktop:/home/rasp1# ping 10.0.0.2 -f -c 10000
+PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.
+.                                                                 
+--- 10.0.0.2 ping statistics ---
+10000 packets transmitted, 9999 received, 0% packet loss, time 37928ms
+rtt min/avg/max/mdev = 2.252/6.633/871.667/42.003 ms, pipe 65, ipg/ewma 3.793/3.373 ms
+
+
+iperf begge lå mellom 13 og 20 % cpu
+
+--- 10.0.0.2 ping statistics ---
+10000 packets transmitted, 9999 received, 0% packet loss, time 37928ms
+rtt min/avg/max/mdev = 2.252/6.633/871.667/42.003 ms, pipe 65, ipg/ewma 3.793/3.373 ms
+root@rasp1-desktop:/home/rasp1# iperf -c 10.0.0.2 -M 1300 -t 60
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 10.0.0.2, TCP port 5001
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.1 port 59436 connected with 10.0.0.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.3 sec  66.0 MBytes  9.18 Mbits/sec
+root@rasp1-desktop:/home/rasp1# iperf -c 10.0.0.2 -M 1300 -t 60
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 10.0.0.2, TCP port 5001
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.1 port 59437 connected with 10.0.0.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.2 sec  64.5 MBytes  8.99 Mbits/sec
+root@rasp1-desktop:/home/rasp1# iperf -c 10.0.0.2 -M 1300 -t 60
+WARNING: attempt to set TCP maximum segment size to 1300, but got 536
+------------------------------------------------------------
+Client connecting to 10.0.0.2, TCP port 5001
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.1 port 59438 connected with 10.0.0.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-60.0 sec  63.5 MBytes  8.88 Mbits/sec
+root@rasp1-desktop:/home/rasp1# 
+

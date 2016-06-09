@@ -1,0 +1,114 @@
+started to measure form port 9
+
+With 
+ping 11.0.0.1 -D -i 0.5 >> pingaddport
+
+
+Iperf starter ved key 38
+
+
+
+
+
+Key change:
+
+
+1464811793.38 : Change keys to secretKey2
+1464811793.38 : Sucsessfully changed keys 
+1464811805.1 : Change keys to secretKey3
+1464811805.1 : Sucsessfully changed keys 
+1464811818.36 : Change keys to secretKey4
+1464811818.36 : Sucsessfully changed keys 
+1464811830.23 : Change keys to secretKey5
+1464811830.23 : Sucsessfully changed keys 
+1464811843.25 : Change keys to secretKey6
+1464811843.25 : Sucsessfully changed keys 
+1464811855.07 : Change keys to secretKey7
+1464811855.07 : Sucsessfully changed keys 
+1464811868.74 : Change keys to secretKey8
+1464811868.74 : Sucsessfully changed keys 
+1464811880.63 : Change keys to secretKey9
+1464811880.63 : Sucsessfully changed keys 
+1464811893.47 : Change keys to secretKey10
+1464811893.47 : Sucsessfully changed keys 
+1464811905.37 : Change keys to secretKey11
+1464811905.37 : Sucsessfully changed keys 
+1464811917.66 : Change keys to secretKey12
+1464811917.66 : Sucsessfully changed keys 
+1464811929.7 : Change keys to secretKey13
+1464811929.7 : Sucsessfully changed keys 
+1464811941.47 : Change keys to secretKey14
+1464811941.47 : Sucsessfully changed keys 
+1464811954.08 : Change keys to secretKey15
+1464811954.08 : Sucsessfully changed keys 
+1464811965.94 : Change keys to secretKey16
+1464811965.94 : Sucsessfully changed keys 
+1464811977.75 : Change keys to secretKey17
+1464811977.75 : Sucsessfully changed keys 
+1464811989.65 : Change keys to secretKey18
+1464811989.65 : Sucsessfully changed keys 
+1464812001.73 : Change keys to secretKey19
+1464812001.73 : Sucsessfully changed keys 
+1464812013.73 : Change keys to secretKey20
+1464812013.73 : Sucsessfully changed keys 
+1464812025.64 : Change keys to secretKey21
+1464812025.64 : Sucsessfully changed keys 
+1464812037.79 : Change keys to secretKey22
+1464812037.79 : Sucsessfully changed keys 
+1464812049.8 : Change keys to secretKey23
+1464812049.8 : Sucsessfully changed keys 
+1464812061.95 : Change keys to secretKey24
+1464812061.95 : Sucsessfully changed keys 
+1464812074.61 : Change keys to secretKey25
+1464812074.61 : Sucsessfully changed keys 
+1464812087.38 : Change keys to secretKey26
+1464812087.38 : Sucsessfully changed keys 
+1464812099.16 : Change keys to secretKey27
+1464812099.16 : Sucsessfully changed keys 
+1464812111.09 : Change keys to secretKey28
+1464812111.09 : Sucsessfully changed keys 
+1464812124.71 : Change keys to secretKey29
+1464812124.71 : Sucsessfully changed keys 
+1464812136.84 : Change keys to secretKey30
+1464812136.84 : Sucsessfully changed keys 
+1464812148.89 : Change keys to secretKey31
+1464812148.89 : Sucsessfully changed keys 
+1464812161.82 : Change keys to secretKey32
+1464812161.82 : Sucsessfully changed keys 
+1464812173.88 : Change keys to secretKey33
+1464812173.88 : Sucsessfully changed keys 
+1464812186.68 : Change keys to secretKey34
+1464812186.68 : Sucsessfully changed keys 
+1464812199.16 : Change keys to secretKey35
+1464812199.16 : Sucsessfully changed keys 
+1464812215.31 : Change keys to secretKey36
+1464812215.31 : Sucsessfully changed keys 
+1464812228.4 : Change keys to secretKey37
+1464812228.4 : Sucsessfully changed keys 
+1464812242.34 : Change keys to secretKey38
+1464812242.34 : Sucsessfully changed keys 
+1464812256.06 : Change keys to secretKey39
+1464812256.06 : Sucsessfully changed keys 
+1464812271.11 : Change keys to secretKey40
+1464812271.11 : Sucsessfully changed keys 
+1464812285.65 : Change keys to secretKey41
+1464812285.65 : Sucsessfully changed keys 
+1464812299.35 : Change keys to secretKey42
+1464812299.35 : Sucsessfully changed keys 
+1464812311.96 : Change keys to secretKey43
+1464812311.96 : Sucsessfully changed keys 
+1464812325.07 : Change keys to secretKey44
+1464812325.07 : Sucsessfully changed keys 
+1464812338.7 : Change keys to secretKey45
+1464812338.7 : Sucsessfully changed keys 
+1464812353.01 : Change keys to secretKey46
+1464812353.01 : Sucsessfully changed keys 
+1464812367.0 : Change keys to secretKey47
+1464812367.0 : Sucsessfully changed keys 
+1464812386.79 : Change keys to secretKey48
+1464812386.79 : Sucsessfully changed keys 
+1464812401.94 : Change keys to secretKey49
+1464812401.94 : Sucsessfully changed keys 
+1464812418.91 : Change keys to secretKey50
+1464812418.91 : Sucsessfully changed keys 
+1464812432.87 : Change keys to secretKey51

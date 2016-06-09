@@ -1,0 +1,72 @@
+NORMAL :
+
+
+	--- 192.168.1.146 ping statistics ---
+	10000 packets transmitted, 10000 received, 0% packet loss, time 42872ms
+	rtt min/avg/max/mdev = 2.106/5.527/158.529/10.123 ms, pipe 11, ipg/ewma 4.287/5.697 ms
+	rasp2@rasp2-desktop:~/Desktop$ sudo ping 192.168.1.146 -f -c 10000
+	PING 192.168.1.146 (192.168.1.146) 56(84) bytes of data.
+			  
+	--- 192.168.1.146 ping statistics ---
+	10000 packets transmitted, 10000 received, 0% packet loss, time 46285ms
+	rtt min/avg/max/mdev = 2.103/5.928/157.444/10.455 ms, pipe 10, ipg/ewma 4.629/3.162 ms
+
+
+--- 192.168.1.146 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 42788ms
+rtt min/avg/max/mdev = 2.066/5.762/134.413/11.063 ms, pipe 9, ipg/ewma 4.279/2.997 ms
+root@rasp2-desktop:/home/rasp2/Desktop# ping 192.168.1.146 -f -c 10000
+PING 192.168.1.146 (192.168.1.146) 56(84) bytes of data.
+..                 
+--- 192.168.1.146 ping statistics ---
+10000 packets transmitted, 9998 received, 0% packet loss, time 59521ms
+rtt min/avg/max/mdev = 2.054/11.434/256.292/23.068 ms, pipe 17, ipg/ewma 5.952/7.461 ms
+
+
+
+	--- 192.168.1.146 ping statistics ---
+	10000 packets transmitted, 9998 received, 0% packet loss, time 48700ms
+	rtt min/avg/max/mdev = 2.131/9.092/284.552/21.596 ms, pipe 19, ipg/ewma 4.870/3.089 ms
+	root@rasp2-desktop:/home/rasp2/Desktop# ping 192.168.1.146 -f -c 10000
+	PING 192.168.1.146 (192.168.1.146) 56(84) bytes of data.
+	.                  
+	--- 192.168.1.146 ping statistics ---
+	10000 packets transmitted, 9999 received, 0% packet loss, time 52387ms
+	rtt min/avg/max/mdev = 2.142/9.818/296.002/22.406 ms, pipe 18, ipg/ewma 5.239/8.355 ms
+
+
+IPSEC::::::.
+
+	root@rasp2-desktop:~/Desktop# ping 10.0.0.1 -c 10000 -f
+	PING 10.0.0.1 (10.0.0.1) 56(84) bytes of data.
+		        
+	--- 10.0.0.1 ping statistics ---
+	10000 packets transmitted, 10000 received, 0% packet loss, time 49710ms
+	rtt min/avg/max/mdev = 2.378/6.898/186.267/13.151 ms, pipe 12, ipg/ewma 4.971/3.436 ms
+	root@rasp2-desktop:~/Desktop# ping 10.0.0.1 -c 10000 -f
+	PING 10.0.0.1 (10.0.0.1) 56(84) bytes of data.
+		       
+	--- 10.0.0.1 ping statistics ---
+	10000 packets transmitted, 10000 received, 0% packet loss, time 48012ms
+	rtt min/avg/max/mdev = 2.306/6.586/169.608/12.230 ms, pipe 11, ipg/ewma 4.801/3.285 ms
+	root@rasp2-desktop:~/Desktop# ping 10.0.0.1 -c 10000 -f
+	PING 10.0.0.1 (10.0.0.1) 56(84) bytes of data.
+		      
+	--- 10.0.0.1 ping statistics ---
+	10000 packets transmitted, 10000 received, 0% packet loss, time 45465ms
+	rtt min/avg/max/mdev = 2.338/5.975/150.112/11.113 ms, pipe 10, ipg/ewma 4.546/2.984 ms
+
+GRE:::::::.
+Croot@rasp2-desktop:~/Desktop# ping 10.0.0.1 -f -c 10000
+PING 10.0.0.1 (10.0.0.1) 56(84) bytes of data.
+               
+--- 10.0.0.1 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 53265ms
+rtt min/avg/max/mdev = 2.210/8.636/227.312/18.088 ms, pipe 15, ipg/ewma 5.327/3.093 ms
+root@rasp2-desktop:~/Desktop# ping 10.0.0.1 -f -c 10000
+PING 10.0.0.1 (10.0.0.1) 56(84) bytes of data.
+            
+--- 10.0.0.1 ping statistics ---
+10000 packets transmitted, 10000 received, 0% packet loss, time 45481ms
+rtt min/avg/max/mdev = 2.175/6.448/174.848/13.151 ms, pipe 12, ipg/ewma 4.548/4.415 ms
+

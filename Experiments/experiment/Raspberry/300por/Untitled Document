@@ -1,0 +1,15 @@
+During ping
+
+steffen@steffen-HP-Compaq-8100-Elite-CMT-PC:~/Dropbox/NTNU/Master/Experiments/experiment/Raspberry$ python port_switcher.py 
+1464804109.44 : Sucsessfully changed flow to 30
+1464804115.6 : Sucsessfully changed flow to 31
+1464804121.8 : Sucsessfully changed flow to 32
+1464804128.01 : Sucsessfully changed flow to 33
+1464804134.23 : Sucsessfully changed flow to 34
+1464804140.56 : Sucsessfully changed flow to 35
+1464804146.91 : Sucsessfully changed flow to 36
+1464804153.14 : Sucsessfully changed flow to 37
+1464804159.27 : Sucsessfully changed flow to 38
+1464804165.5 : Sucsessfully changed flow to 39
+1464804171.59 : Sucsessfully changed flow to 40
+

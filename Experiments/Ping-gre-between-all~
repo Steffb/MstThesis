@@ -1,0 +1,32 @@
+
+h1 ping 10.0.0.2 -c 60000 -s 1312 -l 60000
+
+--- 10.0.0.2 ping statistics ---
+60000 packets transmitted, 16077 received, 73% packet loss, time 4011ms
+rtt min/avg/max/mdev = 45.310/91.872/1786.201/42.260 ms, pipe 32768
+
+--- 10.0.0.2 ping statistics ---
+60000 packets transmitted, 16489 received, 72% packet loss, time 4574ms
+rtt min/avg/max/mdev = 0.346/75.748/130.412/39.594 ms, pipe 1613
+
+--- 10.0.0.2 ping statistics ---
+60000 packets transmitted, 16022 received, 73% packet loss, time 5239ms
+rtt min/avg/max/mdev = 0.315/39.153/455.719/43.095 ms, pipe 1293
+
+
+
+h1 ping 10.0.0.2 -c 60000 -l 600000
+
+--- 10.0.0.2 ping statistics ---
+60000 packets transmitted, 44237 received, 26% packet loss, time 3987ms
+rtt min/avg/max/mdev = 0.395/315.024/427.557/101.781 ms, pipe 32749
+
+--- 10.0.0.2 ping statistics ---
+60000 packets transmitted, 45305 received, 24% packet loss, time 4184ms
+rtt min/avg/max/mdev = 0.444/194.754/534.962/171.300 ms, pipe 32768
+
+--- 10.0.0.2 ping statistics ---
+60000 packets transmitted, 41484 received, 30% packet loss, time 4767ms
+rtt min/avg/max/mdev = 0.427/191.947/364.480/86.189 ms, pipe 32768
+
+
