@@ -1,0 +1,343 @@
+teffen@steffen-HP-Compaq-8100-Elite-CMT-PC:~$ ssh rasp2@192.168.1.121 -X
+rasp2@192.168.1.121's password: 
+Welcome to Ubuntu 15.10 (GNU/Linux 4.1.18-v7+ armv7l)
+
+ * Documentation:  https://help.ubuntu.com/
+
+130 packages can be updated.
+88 updates are security updates.
+
+Last login: Wed Jun  8 11:55:01 2016 from 192.168.1.147
+rasp2@rasp2-desktop:~$ sudo su
+root@rasp2-desktop:/home/rasp2# ip netns list
+local
+ns2
+root@rasp2-desktop:/home/rasp2# ip netns exec ns2 bash
+root@rasp2-desktop:/home/rasp2# ifconfig
+tap       Link encap:Ethernet  HWaddr 56:63:93:7a:1e:af  
+          inet addr:11.0.0.2  Bcast:11.255.255.255  Mask:255.0.0.0
+          inet6 addr: fe80::5463:93ff:fe7a:1eaf/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1486813 errors:0 dropped:107 overruns:0 frame:0
+          TX packets:746515 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:2013098674 (2.0 GB)  TX bytes:49517510 (49.5 MB)
+
+tap2      Link encap:Ethernet  HWaddr 5a:f0:05:74:83:7a  
+          inet addr:10.0.0.2  Bcast:10.255.255.255  Mask:255.0.0.0
+          inet6 addr: fe80::58f0:5ff:fe74:837a/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:2673512 errors:0 dropped:196 overruns:0 frame:0
+          TX packets:1365872 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:3619363392 (3.6 GB)  TX bytes:141567480 (141.5 MB)
+
+root@rasp2-desktop:/home/rasp2# ovs-vsctl show
+fdc68269-3495-48b4-b9c4-ef21685fd5f0
+    Bridge "br0"
+        Controller "tcp:192.168.1.147:6635"
+        Port "tap2"
+            Interface "tap2"
+                type: internal
+        Port "br0"
+            Interface "br0"
+                type: internal
+        Port tt
+            Interface tt
+                error: "could not open network device tt (No such device)"
+        Port ip
+            Interface ip
+                type: ipsec_gre
+                options: {psk=hello, remote_ip="192.168.1.143"}
+    Bridge foo
+        Port "ipsecPort2"
+            Interface "ipsecPort2"
+                type: ipsec_gre
+                options: {key="2", psk="secretKey2", remote_ip="192.168.1.143"}
+        Port foo
+            Interface foo
+                type: internal
+        Port tap
+            Interface tap
+                type: internal
+    ovs_version: "2.4.0"
+root@rasp2-desktop:/home/rasp2# ovs-vsctl del-br foo
+root@rasp2-desktop:/home/rasp2# exit
+exit
+root@rasp2-desktop:/home/rasp2# ifconfig
+enxb827eb0c1835 Link encap:Ethernet  HWaddr b8:27:eb:0c:18:35  
+          inet addr:192.168.1.121  Bcast:192.168.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::ba27:ebff:fe0c:1835/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:28052852 errors:44 dropped:7749 overruns:0 frame:44
+          TX packets:16384970 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:463284733 (463.2 MB)  TX bytes:68202346 (68.2 MB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:92443 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:92443 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:25478398 (25.4 MB)  TX bytes:25478398 (25.4 MB)
+
+wlan0     Link encap:Ethernet  HWaddr b8:27:eb:59:4d:60  
+          inet addr:192.168.1.122  Bcast:192.168.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::ba27:ebff:fe59:4d60/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:14772784 errors:0 dropped:283 overruns:0 frame:0
+          TX packets:16414712 errors:1590 dropped:1590 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:2478614731 (2.4 GB)  TX bytes:3278787641 (3.2 GB)
+
+root@rasp2-desktop:/home/rasp2# ifconfug
+No command 'ifconfug' found, did you mean:
+ Command 'ifconfig' from package 'net-tools' (main)
+ifconfug: command not found
+root@rasp2-desktop:/home/rasp2# ifconfig
+enxb827eb0c1835 Link encap:Ethernet  HWaddr b8:27:eb:0c:18:35  
+          inet addr:192.168.1.121  Bcast:192.168.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::ba27:ebff:fe0c:1835/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:28052929 errors:44 dropped:7749 overruns:0 frame:44
+          TX packets:16385044 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:463290524 (463.2 MB)  TX bytes:68230038 (68.2 MB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:92486 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:92486 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:25498278 (25.4 MB)  TX bytes:25498278 (25.4 MB)
+
+wlan0     Link encap:Ethernet  HWaddr b8:27:eb:59:4d:60  
+          inet addr:192.168.1.122  Bcast:192.168.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::ba27:ebff:fe59:4d60/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:14772784 errors:0 dropped:283 overruns:0 frame:0
+          TX packets:16414712 errors:1590 dropped:1590 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:2478614731 (2.4 GB)  TX bytes:3278787641 (3.2 GB)
+
+root@rasp2-desktop:/home/rasp2# ovs-vsctl add-br foo; ovs-vsctl add-port foo tap -- set interface tap type=internal; ip netns add ns2; ip link set tap netns ns2 ; ip netns exec ns2 ifconfig tap up ; ip netns exec ns2 ifconfig tap inet 11.0.0.2 ; ip netns exec ns2 bash
+Cannot create namespace file "/var/run/netns/ns2": File exists
+root@rasp2-desktop:/home/rasp2# ovs-vsctl show
+fdc68269-3495-48b4-b9c4-ef21685fd5f0
+    Bridge foo
+        Port tap
+            Interface tap
+                type: internal
+        Port foo
+            Interface foo
+                type: internal
+    Bridge "br0"
+        Controller "tcp:192.168.1.147:6635"
+        Port "tap2"
+            Interface "tap2"
+                type: internal
+        Port "br0"
+            Interface "br0"
+                type: internal
+        Port tt
+            Interface tt
+                error: "could not open network device tt (No such device)"
+        Port ip
+            Interface ip
+                type: ipsec_gre
+                options: {psk=hello, remote_ip="192.168.1.143"}
+    ovs_version: "2.4.0"
+root@rasp2-desktop:/home/rasp2# ovs-vsctl add-port foo gre -- set interface gre type=gre options:remote_ip=192.168.1.143
+root@rasp2-desktop:/home/rasp2# ovs-ofctl show
+ovs-ofctl: 'show' command requires at least 1 arguments
+root@rasp2-desktop:/home/rasp2# ovs-ofctl show foo
+OFPT_FEATURES_REPLY (xid=0x2): dpid:00000607c4183440
+n_tables:254, n_buffers:256
+capabilities: FLOW_STATS TABLE_STATS PORT_STATS QUEUE_STATS ARP_MATCH_IP
+actions: output enqueue set_vlan_vid set_vlan_pcp strip_vlan mod_dl_src mod_dl_dst mod_nw_src mod_nw_dst mod_nw_tos mod_tp_src mod_tp_dst
+ 1(tap): addr:cd:76:78:a9:bb:7e
+     config:     PORT_DOWN
+     state:      LINK_DOWN
+     speed: 0 Mbps now, 0 Mbps max
+ 2(ipsecPort2): addr:76:8d:de:54:6d:96
+     config:     0
+     state:      0
+     speed: 0 Mbps now, 0 Mbps max
+ 3(ipsecPort3): addr:b2:16:22:a3:48:ef
+     config:     0
+     state:      0
+     speed: 0 Mbps now, 0 Mbps max
+ 4(ipsecPort4): addr:2a:30:8c:fa:ae:83
+     config:     0
+     state:      0
+     speed: 0 Mbps now, 0 Mbps max
+ 5(gre): addr:f2:18:91:5f:76:d0
+     config:     0
+     state:      0
+     speed: 0 Mbps now, 0 Mbps max
+ LOCAL(foo): addr:06:07:c4:18:34:40
+     config:     PORT_DOWN
+     state:      LINK_DOWN
+     speed: 0 Mbps now, 0 Mbps max
+OFPT_GET_CONFIG_REPLY (xid=0x4): frags=normal miss_send_len=0
+root@rasp2-desktop:/home/rasp2# ovs-vsctl set interface gre options:key=333
+root@rasp2-desktop:/home/rasp2# ovs-ofctl show
+ovs-ofctl: 'show' command requires at least 1 arguments
+root@rasp2-desktop:/home/rasp2# ovs-ofctl show foo
+OFPT_FEATURES_REPLY (xid=0x2): dpid:00000607c4183440
+n_tables:254, n_buffers:256
+capabilities: FLOW_STATS TABLE_STATS PORT_STATS QUEUE_STATS ARP_MATCH_IP
+actions: output enqueue set_vlan_vid set_vlan_pcp strip_vlan mod_dl_src mod_dl_dst mod_nw_src mod_nw_dst mod_nw_tos mod_tp_src mod_tp_dst
+ 1(tap): addr:cd:76:78:a9:bb:7e
+     config:     PORT_DOWN
+     state:      LINK_DOWN
+     speed: 0 Mbps now, 0 Mbps max
+ 2(ipsecPort2): addr:76:8d:de:54:6d:96
+     config:     0
+     state:      0
+     speed: 0 Mbps now, 0 Mbps max
+ 3(ipsecPort3): addr:b2:16:22:a3:48:ef
+     config:     0
+     state:      0
+     speed: 0 Mbps now, 0 Mbps max
+ 4(ipsecPort4): addr:2a:30:8c:fa:ae:83
+     config:     0
+     state:      0
+     speed: 0 Mbps now, 0 Mbps max
+ 5(gre): addr:f2:18:91:5f:76:d0
+     config:     0
+     state:      0
+     speed: 0 Mbps now, 0 Mbps max
+ LOCAL(foo): addr:06:07:c4:18:34:40
+     config:     PORT_DOWN
+     state:      LINK_DOWN
+     speed: 0 Mbps now, 0 Mbps max
+OFPT_GET_CONFIG_REPLY (xid=0x4): frags=normal miss_send_len=0
+root@rasp2-desktop:/home/rasp2# ovs-ofctl dump-flows foo
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=397.858s, table=0, n_packets=0, n_bytes=0, idle_age=397, in_port=2 actions=output:1
+ cookie=0x0, duration=390.048s, table=0, n_packets=6, n_bytes=532, idle_age=385, in_port=3 actions=output:1
+ cookie=0x0, duration=383.120s, table=0, n_packets=37, n_bytes=3514, idle_age=318, in_port=1 actions=output:4
+ cookie=0x0, duration=382.333s, table=0, n_packets=36, n_bytes=3416, idle_age=318, in_port=4 actions=output:1
+ cookie=0x0, duration=846.232s, table=0, n_packets=13, n_bytes=1082, idle_age=382, priority=0 actions=NORMAL
+root@rasp2-desktop:/home/rasp2# ovs-ofctl dump-flows foo
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=400.151s, table=0, n_packets=0, n_bytes=0, idle_age=400, in_port=2 actions=output:1
+ cookie=0x0, duration=392.341s, table=0, n_packets=6, n_bytes=532, idle_age=388, in_port=3 actions=output:1
+ cookie=0x0, duration=385.413s, table=0, n_packets=37, n_bytes=3514, idle_age=320, in_port=1 actions=output:4
+ cookie=0x0, duration=384.626s, table=0, n_packets=36, n_bytes=3416, idle_age=320, in_port=4 actions=output:1
+ cookie=0x0, duration=848.525s, table=0, n_packets=13, n_bytes=1082, idle_age=384, priority=0 actions=NORMAL
+root@rasp2-desktop:/home/rasp2# ovs-ofctl dump-flows foo
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=401.002s, table=0, n_packets=0, n_bytes=0, idle_age=401, in_port=2 actions=output:1
+ cookie=0x0, duration=393.192s, table=0, n_packets=6, n_bytes=532, idle_age=388, in_port=3 actions=output:1
+ cookie=0x0, duration=386.264s, table=0, n_packets=37, n_bytes=3514, idle_age=321, in_port=1 actions=output:4
+ cookie=0x0, duration=385.477s, table=0, n_packets=36, n_bytes=3416, idle_age=321, in_port=4 actions=output:1
+ cookie=0x0, duration=849.376s, table=0, n_packets=13, n_bytes=1082, idle_age=385, priority=0 actions=NORMAL
+root@rasp2-desktop:/home/rasp2# ovs-ofctl dump-flows foo
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=401.781s, table=0, n_packets=0, n_bytes=0, idle_age=401, in_port=2 actions=output:1
+ cookie=0x0, duration=393.971s, table=0, n_packets=6, n_bytes=532, idle_age=389, in_port=3 actions=output:1
+ cookie=0x0, duration=387.043s, table=0, n_packets=37, n_bytes=3514, idle_age=322, in_port=1 actions=output:4
+ cookie=0x0, duration=386.256s, table=0, n_packets=36, n_bytes=3416, idle_age=322, in_port=4 actions=output:1
+ cookie=0x0, duration=850.155s, table=0, n_packets=13, n_bytes=1082, idle_age=386, priority=0 actions=NORMAL
+root@rasp2-desktop:/home/rasp2# ovs-ofctl add-flow foo in_port=5,actions:output=1
+root@rasp2-desktop:/home/rasp2# ovs-ofctl add-flow foo in_port=1,actions:output=5
+root@rasp2-desktop:/home/rasp2# 
+root@rasp2-desktop:/home/rasp2# 
+root@rasp2-desktop:/home/rasp2# 
+root@rasp2-desktop:/home/rasp2# ovs-ofctl dump-flows foo
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=474.335s, table=0, n_packets=0, n_bytes=0, idle_age=474, in_port=2 actions=output:1
+ cookie=0x0, duration=466.525s, table=0, n_packets=6, n_bytes=532, idle_age=462, in_port=3 actions=output:1
+ cookie=0x0, duration=458.810s, table=0, n_packets=36, n_bytes=3416, idle_age=395, in_port=4 actions=output:1
+ cookie=0x0, duration=55.433s, table=0, n_packets=0, n_bytes=0, idle_age=55, in_port=5 actions=output:1
+ cookie=0x0, duration=50.829s, table=0, n_packets=0, n_bytes=0, idle_age=50, in_port=1 actions=output:5
+ cookie=0x0, duration=922.709s, table=0, n_packets=13, n_bytes=1082, idle_age=459, priority=0 actions=NORMAL
+root@rasp2-desktop:/home/rasp2# ping 11.0.0.1
+PING 11.0.0.1 (11.0.0.1) 56(84) bytes of data.
+^C
+--- 11.0.0.1 ping statistics ---
+65 packets transmitted, 0 received, 100% packet loss, time 64008ms
+
+root@rasp2-desktop:/home/rasp2# ovs-ofctl dump-flows foo
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=573.796s, table=0, n_packets=0, n_bytes=0, idle_age=573, in_port=2 actions=output:1
+ cookie=0x0, duration=565.986s, table=0, n_packets=6, n_bytes=532, idle_age=561, in_port=3 actions=output:1
+ cookie=0x0, duration=558.271s, table=0, n_packets=36, n_bytes=3416, idle_age=494, in_port=4 actions=output:1
+ cookie=0x0, duration=154.894s, table=0, n_packets=0, n_bytes=0, idle_age=154, in_port=5 actions=output:1
+ cookie=0x0, duration=150.290s, table=0, n_packets=68, n_bytes=3304, idle_age=3, in_port=1 actions=output:5
+ cookie=0x0, duration=1022.170s, table=0, n_packets=13, n_bytes=1082, idle_age=558, priority=0 actions=NORMAL
+root@rasp2-desktop:/home/rasp2# ovs-vsctl show
+fdc68269-3495-48b4-b9c4-ef21685fd5f0
+    Bridge foo
+        Port "ipsecPort3"
+            Interface "ipsecPort3"
+                type: ipsec_gre
+                options: {key="3", psk="secretKey3", remote_ip="192.168.1.143"}
+        Port "ipsecPort4"
+            Interface "ipsecPort4"
+                type: ipsec_gre
+                options: {key="4", psk="secretKey4", remote_ip="192.168.1.143"}
+        Port tap
+            Interface tap
+                type: internal
+        Port foo
+            Interface foo
+                type: internal
+        Port "ipsecPort2"
+            Interface "ipsecPort2"
+                type: ipsec_gre
+                options: {key="2", psk="secretKey2", remote_ip="192.168.1.143"}
+        Port gre
+            Interface gre
+                type: gre
+                options: {key="333", remote_ip="192.168.1.143"}
+    Bridge "br0"
+        Controller "tcp:192.168.1.147:6635"
+        Port "tap2"
+            Interface "tap2"
+                type: internal
+        Port "br0"
+            Interface "br0"
+                type: internal
+        Port tt
+            Interface tt
+                error: "could not open network device tt (No such device)"
+        Port ip
+            Interface ip
+                type: ipsec_gre
+                options: {psk=hello, remote_ip="192.168.1.143"}
+    ovs_version: "2.4.0"
+root@rasp2-desktop:/home/rasp2# ovs-vsctl del-port ipsecPort2
+root@rasp2-desktop:/home/rasp2# ping 11.0.0.1
+PING 11.0.0.1 (11.0.0.1) 56(84) bytes of data.
+64 bytes from 11.0.0.1: icmp_seq=91 ttl=64 time=2002 ms
+64 bytes from 11.0.0.1: icmp_seq=92 ttl=64 time=1002 ms
+64 bytes from 11.0.0.1: icmp_seq=93 ttl=64 time=2.66 ms
+64 bytes from 11.0.0.1: icmp_seq=94 ttl=64 time=0.601 ms
+64 bytes from 11.0.0.1: icmp_seq=95 ttl=64 time=0.587 ms
+64 bytes from 11.0.0.1: icmp_seq=96 ttl=64 time=0.589 ms
+64 bytes from 11.0.0.1: icmp_seq=97 ttl=64 time=0.599 ms
+64 bytes from 11.0.0.1: icmp_seq=98 ttl=64 time=0.502 ms
+^C
+--- 11.0.0.1 ping statistics ---
+98 packets transmitted, 8 received, 91% packet loss, time 97012ms
+rtt min/avg/max/mdev = 0.502/376.345/2002.586/696.648 ms, pipe 3
+root@rasp2-desktop:/home/rasp2# 
+
+root@rasp2-desktop:/home/rasp2# ovs-ofctl dump-flows foo
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=1014.796s, table=0, n_packets=0, n_bytes=0, idle_age=1014, in_port=2 actions=output:1
+ cookie=0x0, duration=1006.986s, table=0, n_packets=6, n_bytes=532, idle_age=1002, in_port=3 actions=output:1
+ cookie=0x0, duration=999.271s, table=0, n_packets=36, n_bytes=3416, idle_age=935, in_port=4 actions=output:1
+ cookie=0x0, duration=595.894s, table=0, n_packets=10, n_bytes=868, idle_age=230, in_port=5 actions=output:1
+ cookie=0x0, duration=591.290s, table=0, n_packets=170, n_bytes=8036, idle_age=230, in_port=1 actions=output:5
+ cookie=0x0, duration=1463.170s, table=0, n_packets=13, n_bytes=1082, idle_age=999, priority=0 actions=NORMAL
+root@rasp2-desktop:/home/rasp2# 
+
+

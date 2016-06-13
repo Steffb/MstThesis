@@ -30,9 +30,9 @@ def exec_ssh_command(sshInfo, command):
       if(err.read()): print '[exec_ssh_command (error)] %s !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Error'%(err.readlines())
       ssh.close()
      
-#exec_ssh_command(name_to_sshInfo['p1'], 'ovs-vsctl add-br foo; ovs-vsctl add-port foo tap -- set interface tap type=internal; ip netns add ns1; ip link set tap netns ns1 ; ip netns exec ns1 ifconfig tap up ; ip netns exec ns1 ifconfig tap inet 11.0.0.1 ; ip netns exec ns1 bash')
+exec_ssh_command(name_to_sshInfo['p1'], 'ovs-vsctl add-br foo; ovs-vsctl add-port foo tap -- set interface tap type=internal; ip netns add ns1; ip link set tap netns ns1 ; ip netns exec ns1 ifconfig tap up ; ip netns exec ns1 ifconfig tap inet 11.0.0.1 ; ip netns exec ns1 bash')
 
-#exec_ssh_command(name_to_sshInfo['p2'], 'ovs-vsctl add-br foo; ovs-vsctl add-port foo tap -- set interface tap type=internal; ip netns add ns2; ip link set tap netns ns2 ; ip netns exec ns2 ifconfig tap up ; ip netns exec ns2 ifconfig tap inet 11.0.0.2 ; ip netns exec ns2 bash')
+exec_ssh_command(name_to_sshInfo['p2'], 'ovs-vsctl add-br foo; ovs-vsctl add-port foo tap -- set interface tap type=internal; ip netns add ns2; ip link set tap netns ns2 ; ip netns exec ns2 ifconfig tap up ; ip netns exec ns2 ifconfig tap inet 11.0.0.2 ; ip netns exec ns2 bash')
 
 
 

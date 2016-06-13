@@ -1,0 +1,426 @@
+steffen@steffen-HP-Compaq-8100-Elite-CMT-PC:~$ ssh rasp1@192.168.1.146 -X
+rasp1@192.168.1.146's password: 
+Welcome to Ubuntu 15.10 (GNU/Linux 4.1.18-v7+ armv7l)
+
+ * Documentation:  https://help.ubuntu.com/
+
+130 packages can be updated.
+88 updates are security updates.
+
+Last login: Wed Jun  8 11:54:48 2016 from 192.168.1.147
+rasp1@rasp1-desktop:~$ 
+rasp1@rasp1-desktop:~$ 
+rasp1@rasp1-desktop:~$ ifconfig
+enxb827ebcb220b Link encap:Ethernet  HWaddr b8:27:eb:cb:22:0b  
+          inet addr:192.168.1.143  Bcast:192.168.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::ba27:ebff:fecb:220b/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:71083 errors:0 dropped:1 overruns:0 frame:0
+          TX packets:63372 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:7464888 (7.4 MB)  TX bytes:4578393 (4.5 MB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:15085 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:15085 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:1327757 (1.3 MB)  TX bytes:1327757 (1.3 MB)
+
+wlan0     Link encap:Ethernet  HWaddr b8:27:eb:9e:77:5e  
+          inet addr:192.168.1.146  Bcast:192.168.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::ba27:ebff:fe9e:775e/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:142409 errors:0 dropped:83 overruns:0 frame:0
+          TX packets:1049 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:25007484 (25.0 MB)  TX bytes:329659 (329.6 KB)
+
+rasp1@rasp1-desktop:~$ ip netns list
+rasp1@rasp1-desktop:~$ sudo su
+root@rasp1-desktop:/home/rasp1# ovs-vsctl add-br foo; ovs-vsctl add-port foo tap -- set interface tap type=internal; ip netns add ns1; ip link set tap netns ns1 ; ip netns exec ns1 ifconfig tap up ; ip netns exec ns1 ifconfig tap inet 11.0.0.1 ; ip netns exec ns1 bash
+ovs-vsctl: cannot create a bridge named foo because a bridge named foo already exists
+ovs-vsctl: cannot create a port named tap because a port named tap already exists on bridge foo
+root@rasp1-desktop:/home/rasp1# ifconfig
+tap       Link encap:Ethernet  HWaddr f2:42:22:16:d1:f5  
+          inet addr:11.0.0.1  Bcast:11.255.255.255  Mask:255.0.0.0
+          inet6 addr: fe80::f042:22ff:fe16:d1f5/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:7 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:0 (0.0 B)  TX bytes:578 (578.0 B)
+
+root@rasp1-desktop:/home/rasp1# ovs-vsct show
+No command 'ovs-vsct' found, did you mean:
+ Command 'ovs-vsctl' from package 'openvswitch-switch' (main)
+ovs-vsct: command not found
+root@rasp1-desktop:/home/rasp1# ovs-vsctl show
+f35e70f5-e833-44ae-a863-6f9210baf959
+    Bridge foo
+        Port tap
+            Interface tap
+                type: internal
+        Port foo
+            Interface foo
+                type: internal
+        Port "ipsecPort3"
+            Interface "ipsecPort3"
+                type: ipsec_gre
+                options: {key="3", psk="secretKey3", remote_ip="192.168.1.121"}
+                error: "ipsecPort3: could not set configuration (Invalid argument)"
+        Port "ipsecPort2"
+            Interface "ipsecPort2"
+                type: ipsec_gre
+                options: {key="2", psk="secretKey2", remote_ip="192.168.1.121"}
+                error: "ipsecPort2: could not set configuration (Invalid argument)"
+    Bridge "br0"
+        Controller "tcp:192.168.1.147:6635"
+        Port new
+            Interface new
+                type: Internal
+                error: "could not open network device new (Address family not supported by protocol)"
+        Port "tap3"
+            Interface "tap3"
+                type: internal
+        Port aa
+            Interface aa
+                type: internal
+        Port taptap
+            Interface taptap
+                type: internal
+        Port "br0"
+            Interface "br0"
+                type: internal
+        Port ip
+            Interface ip
+                type: ipsec_gre
+                options: {psk=hello, remote_ip="192.168.1.121"}
+                error: "ip: could not set configuration (Invalid argument)"
+        Port "tap1"
+            Interface "tap1"
+                type: internal
+    ovs_version: "2.4.0"
+root@rasp1-desktop:/home/rasp1# ping 11.0.0.2
+PING 11.0.0.2 (11.0.0.2) 56(84) bytes of data.
+^C
+--- 11.0.0.2 ping statistics ---
+12 packets transmitted, 0 received, 100% packet loss, time 11005ms
+
+root@rasp1-desktop:/home/rasp1# ovs-vsctl del-br foo
+root@rasp1-desktop:/home/rasp1# exit
+exit
+root@rasp1-desktop:/home/rasp1# ifconfig
+enxb827ebcb220b Link encap:Ethernet  HWaddr b8:27:eb:cb:22:0b  
+          inet addr:192.168.1.143  Bcast:192.168.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::ba27:ebff:fecb:220b/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:71622 errors:0 dropped:1 overruns:0 frame:0
+          TX packets:63779 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:7508229 (7.5 MB)  TX bytes:4635973 (4.6 MB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:15093 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:15093 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:1328317 (1.3 MB)  TX bytes:1328317 (1.3 MB)
+
+wlan0     Link encap:Ethernet  HWaddr b8:27:eb:9e:77:5e  
+          inet addr:192.168.1.146  Bcast:192.168.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::ba27:ebff:fe9e:775e/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:142525 errors:0 dropped:83 overruns:0 frame:0
+          TX packets:1051 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:25053000 (25.0 MB)  TX bytes:329939 (329.9 KB)
+
+root@rasp1-desktop:/home/rasp1# ovs-vsctl add-br foo; ovs-vsctl add-port foo tap -- set interface tap type=internal; ip netns add ns1; ip link set tap netns ns1 ; ip netns exec ns1 ifconfig tap up ; ip netns exec ns1 ifconfig tap inet 11.0.0.1 ; ip netns exec ns1 bash
+Cannot create namespace file "/var/run/netns/ns1": File exists
+root@rasp1-desktop:/home/rasp1# ovs-vsctl show
+f35e70f5-e833-44ae-a863-6f9210baf959
+    Bridge "br0"
+        Controller "tcp:192.168.1.147:6635"
+        Port new
+            Interface new
+                type: Internal
+                error: "could not open network device new (Address family not supported by protocol)"
+        Port "tap3"
+            Interface "tap3"
+                type: internal
+        Port aa
+            Interface aa
+                type: internal
+        Port taptap
+            Interface taptap
+                type: internal
+        Port "br0"
+            Interface "br0"
+                type: internal
+        Port ip
+            Interface ip
+                type: ipsec_gre
+                options: {psk=hello, remote_ip="192.168.1.121"}
+        Port "tap1"
+            Interface "tap1"
+                type: internal
+    Bridge foo
+        Port tap
+            Interface tap
+                type: internal
+        Port foo
+            Interface foo
+                type: internal
+    ovs_version: "2.4.0"
+root@rasp1-desktop:/home/rasp1# ping 11.0.0.2
+PING 11.0.0.2 (11.0.0.2) 56(84) bytes of data.
+^C
+--- 11.0.0.2 ping statistics ---
+17 packets transmitted, 0 received, 100% packet loss, time 16007ms
+
+root@rasp1-desktop:/home/rasp1# ping 11.0.0.2
+PING 11.0.0.2 (11.0.0.2) 56(84) bytes of data.
+64 bytes from 11.0.0.2: icmp_seq=13 ttl=64 time=4.10 ms
+64 bytes from 11.0.0.2: icmp_seq=14 ttl=64 time=0.991 ms
+64 bytes from 11.0.0.2: icmp_seq=15 ttl=64 time=0.827 ms
+64 bytes from 11.0.0.2: icmp_seq=16 ttl=64 time=0.774 ms
+64 bytes from 11.0.0.2: icmp_seq=17 ttl=64 time=0.767 ms
+64 bytes from 11.0.0.2: icmp_seq=18 ttl=64 time=0.901 ms
+64 bytes from 11.0.0.2: icmp_seq=19 ttl=64 time=2.33 ms
+64 bytes from 11.0.0.2: icmp_seq=20 ttl=64 time=1.31 ms
+64 bytes from 11.0.0.2: icmp_seq=21 ttl=64 time=1.88 ms
+64 bytes from 11.0.0.2: icmp_seq=22 ttl=64 time=1.30 ms
+64 bytes from 11.0.0.2: icmp_seq=23 ttl=64 time=0.939 ms
+64 bytes from 11.0.0.2: icmp_seq=24 ttl=64 time=0.905 ms
+64 bytes from 11.0.0.2: icmp_seq=25 ttl=64 time=0.895 ms
+64 bytes from 11.0.0.2: icmp_seq=26 ttl=64 time=0.825 ms
+64 bytes from 11.0.0.2: icmp_seq=27 ttl=64 time=0.942 ms
+64 bytes from 11.0.0.2: icmp_seq=28 ttl=64 time=0.902 ms
+64 bytes from 11.0.0.2: icmp_seq=29 ttl=64 time=0.916 ms
+64 bytes from 11.0.0.2: icmp_seq=30 ttl=64 time=0.949 ms
+64 bytes from 11.0.0.2: icmp_seq=31 ttl=64 time=0.885 ms
+64 bytes from 11.0.0.2: icmp_seq=32 ttl=64 time=0.900 ms
+64 bytes from 11.0.0.2: icmp_seq=33 ttl=64 time=0.857 ms
+64 bytes from 11.0.0.2: icmp_seq=34 ttl=64 time=0.932 ms
+64 bytes from 11.0.0.2: icmp_seq=35 ttl=64 time=0.924 ms
+64 bytes from 11.0.0.2: icmp_seq=36 ttl=64 time=0.902 ms
+64 bytes from 11.0.0.2: icmp_seq=37 ttl=64 time=0.906 ms
+64 bytes from 11.0.0.2: icmp_seq=38 ttl=64 time=0.929 ms
+64 bytes from 11.0.0.2: icmp_seq=39 ttl=64 time=0.905 ms
+64 bytes from 11.0.0.2: icmp_seq=40 ttl=64 time=0.900 ms
+64 bytes from 11.0.0.2: icmp_seq=41 ttl=64 time=0.906 ms
+64 bytes from 11.0.0.2: icmp_seq=42 ttl=64 time=0.863 ms
+64 bytes from 11.0.0.2: icmp_seq=43 ttl=64 time=0.940 ms
+64 bytes from 11.0.0.2: icmp_seq=44 ttl=64 time=0.905 ms
+64 bytes from 11.0.0.2: icmp_seq=45 ttl=64 time=0.872 ms
+64 bytes from 11.0.0.2: icmp_seq=46 ttl=64 time=0.907 ms
+64 bytes from 11.0.0.2: icmp_seq=47 ttl=64 time=0.929 ms
+64 bytes from 11.0.0.2: icmp_seq=48 ttl=64 time=0.856 ms
+64 bytes from 11.0.0.2: icmp_seq=49 ttl=64 time=0.902 ms
+64 bytes from 11.0.0.2: icmp_seq=50 ttl=64 time=0.857 ms
+64 bytes from 11.0.0.2: icmp_seq=51 ttl=64 time=0.932 ms
+^C
+--- 11.0.0.2 ping statistics ---
+51 packets transmitted, 39 received, 23% packet loss, time 50057ms
+rtt min/avg/max/mdev = 0.767/1.061/4.102/0.570 ms
+root@rasp1-desktop:/home/rasp1# ping 11.0.0.2
+PING 11.0.0.2 (11.0.0.2) 56(84) bytes of data.
+64 bytes from 11.0.0.2: icmp_seq=1 ttl=64 time=2.30 ms
+64 bytes from 11.0.0.2: icmp_seq=2 ttl=64 time=0.888 ms
+64 bytes from 11.0.0.2: icmp_seq=3 ttl=64 time=0.917 ms
+64 bytes from 11.0.0.2: icmp_seq=4 ttl=64 time=0.839 ms
+^C
+--- 11.0.0.2 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 0.839/1.236/2.301/0.615 ms
+root@rasp1-desktop:/home/rasp1# ovs-vsctl show
+f35e70f5-e833-44ae-a863-6f9210baf959
+    Bridge "br0"
+        Controller "tcp:192.168.1.147:6635"
+        Port new
+            Interface new
+                type: Internal
+                error: "could not open network device new (Address family not supported by protocol)"
+        Port "tap3"
+            Interface "tap3"
+                type: internal
+        Port aa
+            Interface aa
+                type: internal
+        Port taptap
+            Interface taptap
+                type: internal
+        Port "br0"
+            Interface "br0"
+                type: internal
+        Port ip
+            Interface ip
+                type: ipsec_gre
+                options: {psk=hello, remote_ip="192.168.1.121"}
+        Port "tap1"
+            Interface "tap1"
+                type: internal
+    Bridge foo
+        Port "ipsecPort2"
+            Interface "ipsecPort2"
+                type: ipsec_gre
+                options: {key="2", psk="secretKey2", remote_ip="192.168.1.121"}
+        Port tap
+            Interface tap
+                type: internal
+        Port foo
+            Interface foo
+                type: internal
+        Port "ipsecPort3"
+            Interface "ipsecPort3"
+                type: ipsec_gre
+                options: {key="3", psk="secretKey3", remote_ip="192.168.1.121"}
+        Port "ipsecPort4"
+            Interface "ipsecPort4"
+                type: ipsec_gre
+                options: {key="4", psk="secretKey4", remote_ip="192.168.1.121"}
+    ovs_version: "2.4.0"
+root@rasp1-desktop:/home/rasp1# ovs-vsctl add-port foo gre -- set interface gre type=gre options:remote_ip=192.168.1.121
+root@rasp1-desktop:/home/rasp1# ovs-ofctl show foo
+OFPT_FEATURES_REPLY (xid=0x2): dpid:00002e72edfcc142
+n_tables:254, n_buffers:256
+capabilities: FLOW_STATS TABLE_STATS PORT_STATS QUEUE_STATS ARP_MATCH_IP
+actions: output enqueue set_vlan_vid set_vlan_pcp strip_vlan mod_dl_src mod_dl_dst mod_nw_src mod_nw_dst mod_nw_tos mod_tp_src mod_tp_dst
+ 1(tap): addr:d2:76:78:39:8f:7e
+     config:     PORT_DOWN
+     state:      LINK_DOWN
+     speed: 0 Mbps now, 0 Mbps max
+ 2(ipsecPort2): addr:f2:d0:09:82:ba:33
+     config:     0
+     state:      0
+     speed: 0 Mbps now, 0 Mbps max
+ 3(ipsecPort3): addr:6a:ea:1e:89:61:c8
+     config:     0
+     state:      0
+     speed: 0 Mbps now, 0 Mbps max
+ 4(ipsecPort4): addr:16:95:82:e7:46:ff
+     config:     0
+     state:      0
+     speed: 0 Mbps now, 0 Mbps max
+ 5(gre): addr:5e:de:9b:ee:74:8a
+     config:     0
+     state:      0
+     speed: 0 Mbps now, 0 Mbps max
+ LOCAL(foo): addr:2e:72:ed:fc:c1:42
+     config:     PORT_DOWN
+     state:      LINK_DOWN
+     speed: 0 Mbps now, 0 Mbps max
+OFPT_GET_CONFIG_REPLY (xid=0x4): frags=normal miss_send_len=0
+root@rasp1-desktop:/home/rasp1# ovs-ofctl add-flow foo in_port=5,actions:output=1
+root@rasp1-desktop:/home/rasp1# ovs-ofctl add-flow foo in_port=1,actions:output=5
+root@rasp1-desktop:/home/rasp1# ping 11.0.0.2
+PING 11.0.0.2 (11.0.0.2) 56(84) bytes of data.
+^C
+--- 11.0.0.2 ping statistics ---
+18 packets transmitted, 0 received, 100% packet loss, time 17004ms
+
+root@rasp1-desktop:/home/rasp1# ovs-ofctl dump-flows
+ovs-ofctl: 'dump-flows' command requires at least 1 arguments
+root@rasp1-desktop:/home/rasp1# ovs-ofctl dump-flows foo
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=264.391s, table=0, n_packets=5, n_bytes=434, idle_age=247, in_port=2 actions=output:1
+ cookie=0x0, duration=256.816s, table=0, n_packets=13, n_bytes=1162, idle_age=247, in_port=3 actions=output:1
+ cookie=0x0, duration=248.679s, table=0, n_packets=37, n_bytes=3514, idle_age=183, in_port=4 actions=output:1
+ cookie=0x0, duration=47.763s, table=0, n_packets=0, n_bytes=0, idle_age=47, in_port=5 actions=output:1
+ cookie=0x0, duration=40.982s, table=0, n_packets=23, n_bytes=1414, idle_age=15, in_port=1 actions=output:5
+ cookie=0x0, duration=720.157s, table=0, n_packets=28, n_bytes=1488, idle_age=266, priority=0 actions=NORMAL
+root@rasp1-desktop:/home/rasp1# ovs-vsctl set interface gre options:key=333
+root@rasp1-desktop:/home/rasp1# ping 11.0.0.2
+PING 11.0.0.2 (11.0.0.2) 56(84) bytes of data.
+
+
+
+
+^C
+--- 11.0.0.2 ping statistics ---
+177 packets transmitted, 0 received, 100% packet loss, time 176002ms
+
+root@rasp1-desktop:/home/rasp1# ovs-ofctl dump-flows foo
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=540.464s, table=0, n_packets=5, n_bytes=434, idle_age=523, in_port=2 actions=output:1
+ cookie=0x0, duration=532.889s, table=0, n_packets=13, n_bytes=1162, idle_age=523, in_port=3 actions=output:1
+ cookie=0x0, duration=524.752s, table=0, n_packets=37, n_bytes=3514, idle_age=459, in_port=4 actions=output:1
+ cookie=0x0, duration=323.836s, table=0, n_packets=0, n_bytes=0, idle_age=323, in_port=5 actions=output:1
+ cookie=0x0, duration=317.055s, table=0, n_packets=200, n_bytes=8848, idle_age=3, in_port=1 actions=output:5
+ cookie=0x0, duration=996.230s, table=0, n_packets=28, n_bytes=1488, idle_age=542, priority=0 actions=NORMAL
+root@rasp1-desktop:/home/rasp1# ovs-ofctl dump-flows foo
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=761.371s, table=0, n_packets=5, n_bytes=434, idle_age=744, in_port=2 actions=output:1
+ cookie=0x0, duration=753.796s, table=0, n_packets=13, n_bytes=1162, idle_age=744, in_port=3 actions=output:1
+ cookie=0x0, duration=745.659s, table=0, n_packets=37, n_bytes=3514, idle_age=680, in_port=4 actions=output:1
+ cookie=0x0, duration=544.743s, table=0, n_packets=0, n_bytes=0, idle_age=544, in_port=5 actions=output:1
+ cookie=0x0, duration=537.962s, table=0, n_packets=200, n_bytes=8848, idle_age=224, in_port=1 actions=output:5
+ cookie=0x0, duration=1217.137s, table=0, n_packets=28, n_bytes=1488, idle_age=763, priority=0 actions=NORMAL
+root@rasp1-desktop:/home/rasp1# ovs-vsctl show
+f35e70f5-e833-44ae-a863-6f9210baf959
+    Bridge "br0"
+        Controller "tcp:192.168.1.147:6635"
+        Port new
+            Interface new
+                type: Internal
+                error: "could not open network device new (Address family not supported by protocol)"
+        Port "tap3"
+            Interface "tap3"
+                type: internal
+        Port aa
+            Interface aa
+                type: internal
+        Port taptap
+            Interface taptap
+                type: internal
+        Port "br0"
+            Interface "br0"
+                type: internal
+        Port ip
+            Interface ip
+                type: ipsec_gre
+                options: {psk=hello, remote_ip="192.168.1.121"}
+        Port "tap1"
+            Interface "tap1"
+                type: internal
+    Bridge foo
+        Port "ipsecPort2"
+            Interface "ipsecPort2"
+                type: ipsec_gre
+                options: {key="2", psk="secretKey2", remote_ip="192.168.1.121"}
+        Port tap
+            Interface tap
+                type: internal
+        Port foo
+            Interface foo
+                type: internal
+        Port "ipsecPort3"
+            Interface "ipsecPort3"
+                type: ipsec_gre
+                options: {key="3", psk="secretKey3", remote_ip="192.168.1.121"}
+        Port gre
+            Interface gre
+                type: gre
+                options: {key="333", remote_ip="192.168.1.121"}
+        Port "ipsecPort4"
+            Interface "ipsecPort4"
+                type: ipsec_gre
+                options: {key="4", psk="secretKey4", remote_ip="192.168.1.121"}
+    ovs_version: "2.4.0"
+root@rasp1-desktop:/home/rasp1# ovs-vsctl del-port ipsecPort4
+root@rasp1-desktop:/home/rasp1# 
+root@rasp1-desktop:/home/rasp1# ovs-ofctl dump-flows foo
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=1009.982s, table=0, n_packets=5, n_bytes=434, idle_age=992, in_port=2 actions=output:1
+ cookie=0x0, duration=1002.407s, table=0, n_packets=13, n_bytes=1162, idle_age=992, in_port=3 actions=output:1
+ cookie=0x0, duration=994.270s, table=0, n_packets=37, n_bytes=3514, idle_age=928, in_port=4 actions=output:1
+ cookie=0x0, duration=793.354s, table=0, n_packets=10, n_bytes=868, idle_age=223, in_port=5 actions=output:1
+ cookie=0x0, duration=786.573s, table=0, n_packets=210, n_bytes=9716, idle_age=223, in_port=1 actions=output:5
+ cookie=0x0, duration=1465.748s, table=0, n_packets=28, n_bytes=1488, idle_age=1011, priority=0 actions=NORMAL
+
+
